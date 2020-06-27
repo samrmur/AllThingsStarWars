@@ -2,13 +2,24 @@ import React from "react";
 import DoubleColumnListView from "@components/core/DoubleColumnListView";
 import { View, Text } from "react-native";
 
-const DoubleColumnListViewPage = () => (
+interface DoubleColumnListViewPageProps {
+  loading: boolean
+  refreshing: boolean,
+  loadingMore: boolean
+}
+
+const DoubleColumnListViewPage = ({
+  loading,
+  refreshing,
+  loadingMore
+} : DoubleColumnListViewPageProps) => (
   <View>
     <Text style={{ marginStart: 10, marginBottom: 10, fontWeight: "bold" }}>Double Column List View</Text>
     <DoubleColumnListView
-      loading={false}
-      loadingMore={false}
-      refreshing={false}
+      loading={loading}
+      loadingMore={loadingMore}
+      refreshing={refreshing}
+      hasNextPage={false}
       style={{ height: "100%" }}
       data={[
         {id: 'item1', title: "Episode 1", subtitle: "The Phantom Menace", content: "This is the first episode of the series! The Darth Maul scene was really cool!", src: "https://picsum.photos/200"},

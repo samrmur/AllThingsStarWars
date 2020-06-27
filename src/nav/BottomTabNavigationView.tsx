@@ -5,6 +5,8 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import { useRoute, RouteProp } from "@react-navigation/native";
+import FilmStackNavigationView from "./FilmStackNavigationView";
+import { useTheme } from "react-native-paper";
 
 const UnderConstruction = () => {
   const params = useRoute<RouteProp<Record<string, { name: string }>, string>>()
@@ -18,14 +20,14 @@ const UnderConstruction = () => {
 }
 
 const BottomTabNavigationView = () => {
+  const theme = useTheme()
   const Tab = createMaterialBottomTabNavigator()
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator barStyle={{ backgroundColor: theme.colors.primary }}>
       <Tab.Screen 
         name="Films" 
-        component={UnderConstruction}
-        initialParams={{ name: "Films" }}
+        component={FilmStackNavigationView}
         options={{
           tabBarLabel: "Films",
           tabBarIcon: ({ color }) => (

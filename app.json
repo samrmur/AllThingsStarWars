@@ -1,4 +1,5 @@
 {
   "name": "AllThingsStarWars",
-  "displayName": "AllThingsStarWars"
+  "displayName": "AllThingsStarWars",
+  "networkUrl": "https://star-wars-graphql-api-prod.herokuapp.com/"
 }

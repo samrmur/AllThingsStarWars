@@ -1,12 +1,24 @@
-import { getStorybookUI, configure } from '@storybook/react-native';
+import React from 'react';
+import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { withKnobs } from '@storybook/addon-knobs';
 
-// import stories
+import './rn-addons';
+
+addDecorator(withKnobs);
+
 configure(() => {
   require('./stories');
 }, module);
 
-// Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters
-// To find allowed options for getStorybookUI
-export default getStorybookUI({
-  asyncStorage: null
-});
+const StorybookUIRoot = getStorybookUI({ asyncStorage: null });
+
+const ThemedStorybook = () => {
+  return (
+    <PaperProvider>
+      <StorybookUIRoot />
+    </PaperProvider>
+  )
+};
+
+export default ThemedStorybook;

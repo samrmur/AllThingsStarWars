@@ -1,0 +1,15 @@
+query FilmListQuery($first: Int, $after: String) {
+  allFilms(first: $first, after: $after) {
+    edges {
+      node {
+        title
+        episodeID,
+        producers
+      }
+      cursor
+    }
+    pageInfo {
+      hasNextPage
+    }
+  }
+}

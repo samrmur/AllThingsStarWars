@@ -11,9 +11,13 @@
     "strict": true,
     "target": "esnext",
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@nav/*": ["./src/nav/*"]
+      "@data/*": ["./src/data/*"],
+      "@nav/*": ["./src/nav/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@services/*": ["src/services/*"]
     }
   },
   "exclude": [

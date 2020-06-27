@@ -12,10 +12,14 @@ module.exports = {
         root: ["./"],
         alias: {
           "@components": "./src/components",
-          "@nav": "./src/nav"
+          "@data": "./src/data",
+          "@nav": "./src/nav",
+          "@services": "./src/services",
+          "@screens": "./src/screens"
         }
       },
     ],
-    ['babel-plugin-transform-inline-environment-variables']
+    ['babel-plugin-transform-inline-environment-variables'],
+    ['import-graphql']
   ]
 };
