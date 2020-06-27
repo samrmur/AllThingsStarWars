@@ -29,3 +29,9 @@ If you need to clean the project:
 ```
 yarn clean
 ```
+
+### Generating GraphQL Types
+To build types for the any GraphQL files created, run:
+```
+yarn code-gen
+```
