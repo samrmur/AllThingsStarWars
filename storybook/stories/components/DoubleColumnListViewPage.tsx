@@ -1,6 +1,7 @@
 import React from "react";
 import DoubleColumnListView from "@components/core/DoubleColumnListView";
 import { View, Text } from "react-native";
+import placeholder from "@assets/star-wars-logo.jpg";
 
 interface DoubleColumnListViewPageProps {
   loading: boolean
@@ -22,8 +23,8 @@ const DoubleColumnListViewPage = ({
       hasNextPage={false}
       style={{ height: "100%" }}
       data={[
-        {id: 'item1', title: "Episode 1", subtitle: "The Phantom Menace", content: "This is the first episode of the series! The Darth Maul scene was really cool!", src: "https://picsum.photos/200"},
-        {id: 'item2', title: "Episode 2", subtitle: "Attack of the Clones", content: "This is the second episode of the series!", src: "https://picsum.photos/200"}
+        {id: 'item1', title: "Episode 1", subtitle: "The Phantom Menace", content: "This is the first episode of the series! The Darth Maul scene was really cool!", src: placeholder},
+        {id: 'item2', title: "Episode 2", subtitle: "Attack of the Clones", content: "This is the second episode of the series!", src: placeholder}
       ]}
     />
   </View>

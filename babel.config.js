@@ -11,6 +11,7 @@ module.exports = {
       {
         root: ["./"],
         alias: {
+          "@assets": "./src/assets",
           "@components": "./src/components",
           "@data": "./src/data",
           "@nav": "./src/nav",

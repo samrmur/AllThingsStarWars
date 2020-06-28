@@ -13,6 +13,7 @@
     "baseUrl": ".",
     "resolveJsonModule": true,
     "paths": {
+      "@assets/*": ["src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@data/*": ["./src/data/*"],
       "@nav/*": ["./src/nav/*"],

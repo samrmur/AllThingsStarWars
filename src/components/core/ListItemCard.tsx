@@ -1,13 +1,13 @@
 import React from "react"
 import { Card, Paragraph, Text } from 'react-native-paper';
-import { StyleProp, ViewStyle } from "react-native";
+import { StyleProp, ViewStyle, ImageSourcePropType } from "react-native";
 
 export interface ListItemCardProps {
   id: string,
   title: string,
   subtitle: string,
   content: string,
-  src: string,
+  src: ImageSourcePropType,
   style?: StyleProp<ViewStyle>
 }
 
@@ -20,7 +20,7 @@ const ListItemCard = ({
 } : ListItemCardProps) => {
   return (
     <Card style={style} accessibilityStates>
-      <Card.Cover source={{ uri: src }} accessibilityStates />
+      <Card.Cover source={src} accessibilityStates />
       <Card.Title title={title} subtitle={subtitle} accessibilityStates />
       <Card.Content>
         <Paragraph numberOfLines={2}>{content}</Paragraph>
