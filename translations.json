@@ -2,8 +2,17 @@
   "en": {
     "translation": {
       "films": {
+        "title": "Films",
+        "subtitle": "The Original Six",
         "episode": "Episode",
         "producers": "Producers"
+      },
+      "characters": {
+        "title": "Characters",
+        "subtitle": "All Characters from the Original Six",
+        "from": "From",
+        "species": "Species",
+        "birthYear": "Birth Year"
       }
     }
   }

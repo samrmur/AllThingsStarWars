@@ -1,4 +1,4 @@
-query FilmListQuery($first: Int, $after: String) {
+query FilmList($first: Int, $after: String) {
   allFilms(first: $first, after: $after) {
     edges {
       node {

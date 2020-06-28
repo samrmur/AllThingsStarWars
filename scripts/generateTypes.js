@@ -5,10 +5,6 @@ const builder = new Builder({
   schemaTypesPath: 'src/data',
   addTypename: true
 });
-
-builder.on('build:schema', (schema) => {
-  console.log(schema)
-});
  
 builder.on('error', (error) => {
   console.error(error);

@@ -5,6 +5,10 @@ import { ListItemCardProps } from "@components/core/ListItemCard"
 import { useTranslation } from "react-i18next"
 import placeholder from "@assets/star-wars-logo.jpg"
 
+const doubleColumnListViewStyle = {
+  height: "100%"
+}
+
 const FilmListScreen = () => {
   const { t } = useTranslation() 
 
@@ -12,7 +16,6 @@ const FilmListScreen = () => {
     loading,
     refreshing,
     data,
-    error,
     refreshFilms
   } = useFilmList()
 
@@ -36,7 +39,7 @@ const FilmListScreen = () => {
       loadingMore={false}
       refreshing={refreshing}
       hasNextPage={false}
-      style={{ height: "100%" }}
+      style={doubleColumnListViewStyle}
       onRefresh={refreshFilms}
       data={films}
     />

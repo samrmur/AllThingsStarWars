@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import FontAwesome from "react-native-vector-icons/FontAwesome"
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import FilmStackNavigationView from "./FilmStackNavigationView";
 import { useTheme } from "react-native-paper";
+import CharacterStackNavigationView from "./CharacterStackNavigationView";
 
 const UnderConstruction = () => {
   const params = useRoute<RouteProp<Record<string, { name: string }>, string>>()
@@ -37,8 +38,7 @@ const BottomTabNavigationView = () => {
       />
       <Tab.Screen 
         name="Characters" 
-        component={UnderConstruction}
-        initialParams={{ name: "Characters" }}
+        component={CharacterStackNavigationView}
         options={{
           tabBarLabel: "Characters",
           tabBarIcon: ({ color }) => (

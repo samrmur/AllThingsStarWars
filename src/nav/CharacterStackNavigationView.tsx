@@ -1,42 +1,42 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
-import FilmListScreen from "@screens/films/FilmListScreen";
 import { Appbar } from "react-native-paper";
 import { Route } from "@react-navigation/native";
 import { Scene, StackNavigationProp } from "@react-navigation/stack/lib/typescript/src/types";
+import CharacterListScreen from "@screens/characters/CharacterListScreen";
 import { useTranslation } from "react-i18next";
 
-interface FilmStackNavigationHeaderProps {
+interface CharacterStackNavigationHeaderProps {
   previous: Scene<Route<string>> | undefined,
   navigation: StackNavigationProp<Record<string, object | undefined>, string>
 }
 
-const FilmStackNavigationHeader = ({
+const CharacterStackNavigationHeader = ({
   previous,
   navigation
-} : FilmStackNavigationHeaderProps) => {
+} : CharacterStackNavigationHeaderProps) => {
   const { t } = useTranslation()
-
+  
   return (
     <Appbar.Header accessibilityStates>
       {previous ? (
         <Appbar.BackAction accessibilityStates onPress={() => { navigation.pop() }} />
       ) : null}
-      <Appbar.Content title={t("films.title")} subtitle={t("films.subtitle")} accessibilityStates />
+      <Appbar.Content title={t("characters.title")} subtitle={t("characters.subtitle")} accessibilityStates />
     </Appbar.Header>
   )
 }
 
-const FilmStackNavigationView = () => {
+const CharacterStackNavigationView = () => {
   const Stack = createStackNavigator()
 
   return (
     <Stack.Navigator screenOptions={{
-      header: ({ previous, navigation }) => <FilmStackNavigationHeader previous={previous} navigation={navigation} />
+      header: ({ previous, navigation }) => <CharacterStackNavigationHeader previous={previous} navigation={navigation} />
     }}>
-      <Stack.Screen name="FilmsList" component={FilmListScreen} />
+      <Stack.Screen name="CharactersList" component={CharacterListScreen} />
     </Stack.Navigator>
   )
 }
 
-export default FilmStackNavigationView
+export default CharacterStackNavigationView

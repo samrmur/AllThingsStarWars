@@ -1,5 +1,5 @@
 import { DocumentNode } from "graphql-typed";
-export namespace FilmListQueryQueryPartialData {
+export namespace FilmListQueryPartialData {
   export interface AllFilmsEdgesNode {
     __typename?: "Film" | null;
     title?: string | null;
@@ -8,7 +8,7 @@ export namespace FilmListQueryQueryPartialData {
   }
   export interface AllFilmsEdges {
     __typename?: "FilmsEdge" | null;
-    node?: FilmListQueryQueryPartialData.AllFilmsEdgesNode | null;
+    node?: FilmListQueryPartialData.AllFilmsEdgesNode | null;
     cursor?: string | null;
   }
   export interface AllFilmsPageInfo {
@@ -17,14 +17,14 @@ export namespace FilmListQueryQueryPartialData {
   }
   export interface AllFilms {
     __typename?: "FilmsConnection" | null;
-    edges?: (FilmListQueryQueryPartialData.AllFilmsEdges | null)[] | null;
-    pageInfo?: FilmListQueryQueryPartialData.AllFilmsPageInfo | null;
+    edges?: (FilmListQueryPartialData.AllFilmsEdges | null)[] | null;
+    pageInfo?: FilmListQueryPartialData.AllFilmsPageInfo | null;
   }
 }
-export interface FilmListQueryQueryPartialData {
-  allFilms?: FilmListQueryQueryPartialData.AllFilms | null;
+export interface FilmListQueryPartialData {
+  allFilms?: FilmListQueryPartialData.AllFilms | null;
 }
-export namespace FilmListQueryQueryData {
+export namespace FilmListQueryData {
   export interface Variables {
     first?: number | null;
     after?: string | null;
@@ -37,7 +37,7 @@ export namespace FilmListQueryQueryData {
   }
   export interface AllFilmsEdges {
     __typename: "FilmsEdge";
-    node?: FilmListQueryQueryData.AllFilmsEdgesNode | null;
+    node?: FilmListQueryData.AllFilmsEdgesNode | null;
     cursor: string;
   }
   export interface AllFilmsPageInfo {
@@ -46,12 +46,12 @@ export namespace FilmListQueryQueryData {
   }
   export interface AllFilms {
     __typename: "FilmsConnection";
-    edges?: (FilmListQueryQueryData.AllFilmsEdges | null)[] | null;
-    pageInfo: FilmListQueryQueryData.AllFilmsPageInfo;
+    edges?: (FilmListQueryData.AllFilmsEdges | null)[] | null;
+    pageInfo: FilmListQueryData.AllFilmsPageInfo;
   }
 }
-export interface FilmListQueryQueryData {
-  allFilms?: FilmListQueryQueryData.AllFilms | null;
+export interface FilmListQueryData {
+  allFilms?: FilmListQueryData.AllFilms | null;
 }
-declare const document: DocumentNode<FilmListQueryQueryData, FilmListQueryQueryData.Variables, FilmListQueryQueryPartialData>;
+declare const document: DocumentNode<FilmListQueryData, FilmListQueryData.Variables, FilmListQueryPartialData>;
 export default document;

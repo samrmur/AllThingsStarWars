@@ -13,19 +13,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { ApolloProvider } from '@apollo/react-hooks';
 import StarWarsApolloClient from '@services/graphql/StarWarsApolloClient';
 
-const theme = {
-  ...DefaultTheme,
-  roundness: 2,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: DefaultTheme.colors.primary,
-  },
-};
-
 const App = () => {
   return (
     <ApolloProvider client={StarWarsApolloClient}>
-      <PaperProvider theme={theme}>
+      <PaperProvider>
         <NavigationContainer>
           <BottomTabNavigationView />
         </NavigationContainer>
