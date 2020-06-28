@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/react-hooks";
 import CharacterListQuery, { CharacterListQueryData } from "@data/queries/CharacterListQuery.graphql";
+import { useCallback } from "react";
 
 const PAGE_SIZE = 20
 
@@ -22,11 +23,7 @@ const useCharacterList = () => {
   const loadingMore = networkStatus == 3
   const refreshing = networkStatus == 4
 
-  const refreshCharacters = () => {
-    refetch()
-  }
-
-  const loadMoreCharacters = () => {
+  const loadMoreCharacters = useCallback(() => {
     fetchMore({
       variables: {
         first: PAGE_SIZE,
@@ -44,7 +41,7 @@ const useCharacterList = () => {
         } : previousResult
       }
     })
-  }
+  }, [networkStatus, data])
 
   return {
     loading,
@@ -52,7 +49,7 @@ const useCharacterList = () => {
     loadingMore,
     data,
     error,
-    refreshCharacters,
+    refreshCharacters: refetch,
     loadMoreCharacters
   }
 }

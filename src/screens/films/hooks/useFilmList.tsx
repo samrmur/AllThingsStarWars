@@ -18,17 +18,13 @@ const useFilmList = () => {
 
   const loading = networkStatus == 1
   const refreshing = networkStatus == 4
-  
-  const refreshFilms = () => {
-    refetch()
-  }
 
   return {
     loading,
     refreshing,
     data,
     error,
-    refreshFilms
+    refreshFilms: refetch
   }
 }
 
