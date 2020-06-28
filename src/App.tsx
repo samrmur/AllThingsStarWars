@@ -6,12 +6,12 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
-import BottomTabNavigationView from '@nav/BottomTabNavigationView';
-import { NavigationContainer } from '@react-navigation/native';
-import { ApolloProvider } from '@apollo/react-hooks';
-import StarWarsApolloClient from '@services/graphql/StarWarsApolloClient';
+import React from 'react'
+import {Provider as PaperProvider} from 'react-native-paper'
+import BottomTabNavigationView from '@nav/BottomTabNavigationView'
+import {NavigationContainer} from '@react-navigation/native'
+import {ApolloProvider} from '@apollo/react-hooks'
+import StarWarsApolloClient from '@services/graphql/StarWarsApolloClient'
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
         </NavigationContainer>
       </PaperProvider>
     </ApolloProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

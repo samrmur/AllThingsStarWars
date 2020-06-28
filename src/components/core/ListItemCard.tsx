@@ -1,13 +1,13 @@
-import React from "react"
-import { Card, Paragraph, Text } from 'react-native-paper';
-import { StyleProp, ViewStyle, ImageSourcePropType } from "react-native";
+import React from 'react'
+import {Card, Paragraph} from 'react-native-paper'
+import {StyleProp, ViewStyle, ImageSourcePropType} from 'react-native'
 
 export interface ListItemCardProps {
-  id: string,
-  title: string,
-  subtitle: string,
-  content: string,
-  src: ImageSourcePropType,
+  id: string
+  title: string
+  subtitle: string
+  content: string
+  src: ImageSourcePropType
   style?: StyleProp<ViewStyle>
 }
 
@@ -17,7 +17,7 @@ const ListItemCard = ({
   content,
   src,
   style
-} : ListItemCardProps) => {
+}: ListItemCardProps) => {
   return (
     <Card style={style} accessibilityStates>
       <Card.Cover source={src} accessibilityStates />
