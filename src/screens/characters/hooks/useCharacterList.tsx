@@ -22,8 +22,12 @@ const useCharacterList = () => {
   const loading = networkStatus == 1
   const loadingMore = networkStatus == 3
   const refreshing = networkStatus == 4
+  const hasNextPage = data?.allPeople?.pageInfo?.hasNextPage ?? false
 
   const loadMoreCharacters = useCallback(() => {
+    console.log("RAN")
+    console.log(data?.allPeople?.pageInfo?.endCursor)
+
     fetchMore({
       variables: {
         first: PAGE_SIZE,
@@ -47,6 +51,7 @@ const useCharacterList = () => {
     loading,
     refreshing,
     loadingMore,
+    hasNextPage,
     data,
     error,
     refreshCharacters: refetch,

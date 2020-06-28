@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from "react"
 import { FlatList } from "react-native-gesture-handler"
-import { View, StyleProp, ViewStyle, RefreshControl, ActivityIndicator, ListRenderItem, ListRenderItemInfo } from "react-native"
+import { View, StyleProp, ViewStyle, RefreshControl, ActivityIndicator, ListRenderItemInfo } from "react-native"
 import ListItemCard, { ListItemCardProps } from "./ListItemCard"
 import { useTheme } from "react-native-paper"
 
@@ -19,6 +19,7 @@ const DoubleColumnListView = ({
   loading,
   refreshing,
   loadingMore,
+  hasNextPage,
   onRefresh,
   onLoadMore,
   data,
@@ -26,9 +27,27 @@ const DoubleColumnListView = ({
 } : DoubleColumnListViewProps) => {
   const theme = useTheme()
 
-  const memoizedStyle: StyleProp<ViewStyle> = useMemo(() => {
-    return { ...style as object, justifyContent: 'center' }
-  }, [])
+  const loadingComponent = useMemo(() => {
+    return (
+      <View style={{ ...style as object, justifyContent: 'center' }}>
+        <ActivityIndicator color={theme.colors.primary} size="large" />
+      </View>
+    )
+  }, [style, theme])
+
+  const refreshControl = useMemo(() => {
+    return <RefreshControl onRefresh={onRefresh} tintColor={theme.colors.primary} colors={[theme.colors.primary]} refreshing={refreshing} />
+  }, [onRefresh, refreshing, theme])
+
+  const footer = useMemo(() => {
+    return loadingMore ? <ActivityIndicator color={theme.colors.primary} size="small" /> : null
+  }, [loadingMore, theme])
+
+  const loadMoreIfPossible = useCallback(() => {
+    if (!loading && !loadingMore && !refreshing && hasNextPage) {
+      onLoadMore?.()
+    }
+  }, [loading, loadingMore, refreshing, hasNextPage, onLoadMore])
 
   const keyExtractor = useCallback((item: ListItemCardProps) => item.id, [])
   const renderItem = useCallback((info: ListRenderItemInfo<ListItemCardProps>) => {
@@ -44,20 +63,16 @@ const DoubleColumnListView = ({
     )
   }, [])
 
-  return loading ? (
-    <View style={memoizedStyle}>
-      <ActivityIndicator color={theme.colors.primary} size="large" />
-    </View>
-  ) : (
+  return loading ? loadingComponent : (
     <FlatList 
       numColumns={2}
       data={data}
       style={style}
-      refreshControl={<RefreshControl onRefresh={onRefresh} tintColor={theme.colors.primary} colors={[theme.colors.primary]} refreshing={refreshing} />}
+      refreshControl={refreshControl}
       keyExtractor={keyExtractor}
-      onEndReached={onLoadMore}
+      onEndReached={loadMoreIfPossible}
       renderItem={renderItem}
-      ListFooterComponent={loadingMore ? <ActivityIndicator color={theme.colors.primary} size="small" /> : null}
+      ListFooterComponent={footer}
     />
   )
 }

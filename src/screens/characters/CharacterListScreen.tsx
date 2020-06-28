@@ -15,6 +15,8 @@ const CharacterListScreen = () => {
   const {
     loading,
     refreshing,
+    loadingMore,
+    hasNextPage,
     data,
     refreshCharacters,
     loadMoreCharacters
@@ -40,9 +42,9 @@ const CharacterListScreen = () => {
   return (
     <DoubleColumnListView
       loading={loading}
-      loadingMore={false}
+      loadingMore={loadingMore}
       refreshing={refreshing}
-      hasNextPage={false}
+      hasNextPage={hasNextPage}
       style={doubleColumnListViewStyle}
       onRefresh={refreshCharacters}
       onLoadMore={loadMoreCharacters}
