@@ -15,6 +15,7 @@
     "check-style": "prettier --check \"src/**/*.{js,ts,tsx}\"",
     "fix-style": "prettier --write \"src/**/*.{js,ts,tsx}\"",
     "test": "jest",
+    "check-typescript": "tsc --skipLibCheck",
     "lint": "eslint ./src --ext .js,.ts,.tsx --max-warnings 0 --format codeframe"
   },
   "dependencies": {

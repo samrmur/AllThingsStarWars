@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Tests
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -23,6 +23,12 @@ jobs:
       uses: CultureHQ/actions-yarn@master
       with:
         args: install
+
+    # Runs a typescript check against the project
+    - name: Run typescript check
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: check-typescript
 
     # Runs a style check against the project
     - name: Run style check
