@@ -12,7 +12,7 @@ const doubleColumnListViewStyle = {
 const FilmListScreen = () => {
   const {t} = useTranslation()
 
-  const {loading, refreshing, data, refreshFilms} = useFilmList()
+  const {loading, refing, data, refreshFilms} = useFilmList()
 
   const films: ListItemCardProps[] =
     data?.allFilms?.edges
@@ -29,7 +29,9 @@ const FilmListScreen = () => {
         }
       })
       .sort((a, b) => {
-        return Number(a.id) - Number(b.id)
+        return Number(a.id) 
+        
+        - Number(b.id)
       }) ?? []
 
   return (
