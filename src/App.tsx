@@ -7,17 +7,27 @@
  */
 
 import React from 'react'
-import {Provider as PaperProvider} from 'react-native-paper'
+import {Provider as PaperProvider, useTheme} from 'react-native-paper'
 import BottomTabNavigationView from '@nav/BottomTabNavigationView'
 import {NavigationContainer} from '@react-navigation/native'
 import {ApolloProvider} from '@apollo/react-hooks'
 import StarWarsApolloClient from '@services/graphql/StarWarsApolloClient'
+import {StatusBar} from 'react-native'
+
+const barStyle = (dark: boolean) => {
+  return dark ? 'dark-content' : 'light-content'
+}
 
 const App = () => {
+  const theme = useTheme()
+  const barContent = barStyle(theme.dark)
+
+  // Temporary solution for status bar, background colors needs to be based on theme
   return (
     <ApolloProvider client={StarWarsApolloClient}>
       <PaperProvider>
         <NavigationContainer>
+          <StatusBar barStyle={barContent} backgroundColor="#3700b3" />
           <BottomTabNavigationView />
         </NavigationContainer>
       </PaperProvider>
