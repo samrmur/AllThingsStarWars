@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, Text, StyleProp, TextStyle, ViewStyle} from 'react-native'
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {useRoute, RouteProp} from '@react-navigation/native'
@@ -74,7 +74,7 @@ const BottomTabNavigationView = () => {
         options={{
           tabBarLabel: 'Starships',
           tabBarIcon: ({color}: {color: string}) => (
-            <FontAwesome name="space-shuttle" color={color} size={20} />
+            <FontAwesome5 name="space-shuttle" color={color} size={18} />
           )
         }}
       />
