@@ -24,8 +24,14 @@ jobs:
       with:
         args: install
 
+    # Runs a style check against the project
+    - name: Run style check
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: check-style
+
     # Runs a lint check against the project
     - name: Run lint check
       uses: CultureHQ/actions-yarn@master
       with:
-        args: install
+        args: lint
