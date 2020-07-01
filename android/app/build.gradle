@@ -85,6 +85,7 @@ project.ext.vectoricons = [
     iconFontNames: [
       'MaterialIcons.ttf',
       'MaterialCommunityIcons.ttf',
+      'Ionicons.ttf',
       'FontAwesome.tff',
       'FontAwesome5_Brands.ttf',
       'FontAwesome5_Regular.ttf',

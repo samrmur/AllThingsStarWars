@@ -1,34 +1,11 @@
 import React from 'react'
-import {View, Text, StyleProp, TextStyle, ViewStyle} from 'react-native'
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import {useRoute, RouteProp} from '@react-navigation/native'
 import FilmStackNavigationView from './FilmStackNavigationView'
 import {useTheme} from 'react-native-paper'
 import CharacterStackNavigationView from './CharacterStackNavigationView'
-
-const underConstructionViewStyle: StyleProp<ViewStyle> = {
-  flexGrow: 1,
-  justifyContent: 'center'
-}
-
-const underConstructionTextStyle: StyleProp<TextStyle> = {
-  fontWeight: 'bold',
-  textAlign: 'center'
-}
-
-const UnderConstruction = () => {
-  const params = useRoute<RouteProp<Record<string, {name: string}>, string>>()
-  const name = `${params.name} under construction`
-
-  return (
-    <View style={underConstructionViewStyle}>
-      <Text style={underConstructionTextStyle}>{name}</Text>
-    </View>
-  )
-}
+import MoreStackNavigationView from './MoreStackNavigationView'
 
 const BottomTabNavigationView = () => {
   const theme = useTheme()
@@ -57,24 +34,12 @@ const BottomTabNavigationView = () => {
         }}
       />
       <Tab.Screen
-        name="Species"
-        component={UnderConstruction}
-        initialParams={{name: 'Species'}}
+        name="More"
+        component={MoreStackNavigationView}
         options={{
-          tabBarLabel: 'Species',
+          tabBarLabel: 'More',
           tabBarIcon: ({color}: {color: string}) => (
-            <MaterialCommunityIcons name="alien" color={color} size={24} />
-          )
-        }}
-      />
-      <Tab.Screen
-        name="Starships"
-        component={UnderConstruction}
-        initialParams={{name: 'Starships'}}
-        options={{
-          tabBarLabel: 'Starships',
-          tabBarIcon: ({color}: {color: string}) => (
-            <FontAwesome5 name="space-shuttle" color={color} size={18} />
+            <FontAwesome5 name="list-ul" color={color} size={22} />
           )
         }}
       />
