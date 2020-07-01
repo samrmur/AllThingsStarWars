@@ -13,6 +13,28 @@
         "from": "From",
         "species": "Species",
         "birthYear": "Birth Year"
+      },
+      "species": {
+        "title": "Species",
+        "subtitle": "All the species of the galaxy from the original six movies."
+      },
+      "planets": {
+        "title": "Planets",
+        "subtitle": "All the planets of the galaxy from the original six movies."
+      },
+      "starships": {
+        "title": "Starships",
+        "subtitle": "All the starships used in the original six movies."
+      },
+      "vehicles": {
+        "title": "Vehicles",
+        "subtitle": "All the vehicles used in the original six movies."
+      },
+      "settings": {
+        "title": "Settings"
+      },
+      "more": {
+        "title": "More"
       }
     }
   }
