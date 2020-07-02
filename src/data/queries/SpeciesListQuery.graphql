@@ -1,0 +1,17 @@
+query SpeciesList($first: Int, $after: String) {
+  allSpecies(first: $first, after: $after) {
+    edges {
+      node {
+        id
+        name
+        language
+        classification
+        designation
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

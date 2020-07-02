@@ -16,11 +16,14 @@
       },
       "species": {
         "title": "Species",
-        "subtitle": "All the species of the galaxy from the original six movies."
+        "subtitle": "All the species seen from the original six movies.",
+        "speaks": "Speaks",
+        "classification": "Classification",
+        "designation": "Designation"
       },
       "planets": {
         "title": "Planets",
-        "subtitle": "All the planets of the galaxy from the original six movies."
+        "subtitle": "All the planets from the original six movies."
       },
       "starships": {
         "title": "Starships",

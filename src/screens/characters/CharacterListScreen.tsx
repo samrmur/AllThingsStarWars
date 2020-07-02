@@ -5,7 +5,7 @@ import useCharacterList from './hooks/useCharacterList'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import DoubleColumnListView from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
-import AppBarNavigationHeader from '@components/core/AppbarNavigationHeader'
+import AppbarNavigationHeader from '@components/core/AppbarNavigationHeader'
 
 const viewStyle: StyleProp<ViewStyle> = {
   flexGrow: 1
@@ -55,7 +55,7 @@ const CharacterListScreen = () => {
 
   return (
     <View style={viewStyle}>
-      <AppBarNavigationHeader
+      <AppbarNavigationHeader
         title={t('characters.title')}
         subtitle={t('characters.subtitle')}
       />
