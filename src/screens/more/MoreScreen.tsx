@@ -6,6 +6,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {ViewStyle, StyleProp, View} from 'react-native'
 import AppbarNavigationHeader from '@components/core/AppbarNavigationHeader'
+import {useNavigation} from '@react-navigation/native'
 
 interface ListItemLeftProps {
   color: string
@@ -23,6 +24,7 @@ const containerStyle: StyleProp<ViewStyle> = {
 
 const MoreScreen = () => {
   const {t} = useTranslation()
+  const navigation = useNavigation()
 
   return (
     <View>
@@ -31,6 +33,9 @@ const MoreScreen = () => {
         <List.Item
           accessibilityStates
           title={t('species.title')}
+          onPress={() => {
+            navigation.navigate('Species')
+          }}
           left={(props: ListItemLeftProps) => (
             <View style={containerStyle}>
               <MaterialCommunityIcons

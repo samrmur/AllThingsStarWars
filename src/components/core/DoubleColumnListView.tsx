@@ -22,6 +22,10 @@ export interface DoubleColumnListViewProps {
   style?: StyleProp<ViewStyle>
 }
 
+const scrollIndicatorInsets = {
+  right: 1
+}
+
 const DoubleColumnListView = ({
   loading,
   refreshing,
@@ -107,6 +111,7 @@ const DoubleColumnListView = ({
       numColumns={2}
       data={data}
       style={style}
+      scrollIndicatorInsets={scrollIndicatorInsets}
       refreshControl={refreshControl}
       keyExtractor={keyExtractor}
       onEndReached={loadMoreIfPossible}
