@@ -1,17 +1,17 @@
-import React from 'react';
-import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
-import { Provider as PaperProvider } from 'react-native-paper';
-import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react'
+import {getStorybookUI, configure, addDecorator} from '@storybook/react-native'
+import {Provider as PaperProvider} from 'react-native-paper'
+import {withKnobs} from '@storybook/addon-knobs'
 
-import './rn-addons';
+import './rn-addons'
 
-addDecorator(withKnobs);
+addDecorator(withKnobs)
 
 configure(() => {
-  require('./stories');
-}, module);
+  require('./stories')
+}, module)
 
-const StorybookUIRoot = getStorybookUI({ asyncStorage: null });
+const StorybookUIRoot = getStorybookUI({asyncStorage: null})
 
 const ThemedStorybook = () => {
   return (
@@ -19,6 +19,6 @@ const ThemedStorybook = () => {
       <StorybookUIRoot />
     </PaperProvider>
   )
-};
+}
 
-export default ThemedStorybook;
+export default ThemedStorybook

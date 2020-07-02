@@ -11,7 +11,7 @@ import {
 import ListItemCard, {ListItemCardProps} from './ListItemCard'
 import {useTheme} from 'react-native-paper'
 
-interface DoubleColumnListViewProps {
+export interface DoubleColumnListViewProps {
   loading: boolean
   loadingMore: boolean
   refreshing: boolean
