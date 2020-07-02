@@ -31,7 +31,19 @@ yarn clean
 ```
 
 ### Generating GraphQL Types
-To build types for the any GraphQL files created, run:
+To build types for the any GraphQL files created or updated, run:
 ```
 yarn code-gen
+```
+
+### CI Checks
+Current CI workflow does a lint & type check on every pull request. To see if your changes pass these tests before pushing you can run:
+```
+yarn lint
+yarn check-style
+yarn check-typescript
+```
+While `lint` and `check-typescript` need to be manually done, you can fix any code style issues with the following command:
+```
+yarn fix-style
 ```
