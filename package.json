@@ -12,8 +12,8 @@
     "convert-schema": "node scripts/convertJsonSchema.js",
     "download-schema": "node scripts/downloadSchema.js",
     "clean": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf /tmp/haste-map-react-native-packager-*",
-    "check-style": "prettier --check \"src/**/*.{js,ts,tsx}\"",
-    "fix-style": "prettier --write \"src/**/*.{js,ts,tsx}\"",
+    "check-style": "prettier --check \"src/**/*.{js,ts,tsx}\" \"storybook/**/*.{js,ts,tsx}\"",
+    "fix-style": "prettier --write \"src/**/*.{js,ts,tsx}\" \"storybook/**/*.{js,ts,tsx}\"",
     "test": "jest",
     "check-typescript": "tsc --skipLibCheck",
     "lint": "eslint ./src --ext .js,.ts,.tsx --max-warnings 0 --format codeframe"

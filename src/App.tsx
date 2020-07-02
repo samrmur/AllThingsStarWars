@@ -8,11 +8,11 @@
 
 import React from 'react'
 import {Provider as PaperProvider, useTheme} from 'react-native-paper'
-import BottomTabNavigationView from '@nav/BottomTabNavigationView'
 import {NavigationContainer} from '@react-navigation/native'
 import {ApolloProvider} from '@apollo/react-hooks'
 import StarWarsApolloClient from '@services/graphql/StarWarsApolloClient'
 import {StatusBar} from 'react-native'
+import ApplicationStackNavigator from '@nav/ApplicationStackNavigator'
 
 const barStyle = (dark: boolean) => {
   return dark ? 'dark-content' : 'light-content'
@@ -28,7 +28,7 @@ const App = () => {
       <PaperProvider>
         <NavigationContainer>
           <StatusBar barStyle={barContent} backgroundColor="#3700b3" />
-          <BottomTabNavigationView />
+          <ApplicationStackNavigator />
         </NavigationContainer>
       </PaperProvider>
     </ApolloProvider>
