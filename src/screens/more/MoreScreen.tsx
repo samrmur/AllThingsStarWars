@@ -50,6 +50,9 @@ const MoreScreen = () => {
         <List.Item
           accessibilityStates
           title={t('planets.title')}
+          onPress={() => {
+            navigation.navigate('PlanetList')
+          }}
           left={props => (
             <View style={containerStyle}>
               <Ionicons
@@ -65,7 +68,7 @@ const MoreScreen = () => {
           accessibilityStates
           title={t('starships.title')}
           onPress={() => {
-            navigation.navigate('StarshipsList')
+            navigation.navigate('StarshipList')
           }}
           left={(props: ListItemLeftProps) => (
             <View style={containerStyle}>
