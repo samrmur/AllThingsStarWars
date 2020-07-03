@@ -1,0 +1,16 @@
+query StarshipList($first: Int, $after: String) {
+  allStarships(first: $first, after: $after) {
+    edges {
+      node {
+        id
+        name
+        starshipClass
+        model
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
