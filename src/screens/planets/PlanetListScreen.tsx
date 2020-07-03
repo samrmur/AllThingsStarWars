@@ -1,15 +1,16 @@
 import React, {useMemo} from 'react'
-import {useTranslation} from 'react-i18next'
-import {ListItemCardProps} from '@components/core/ListItemCard'
 import DoubleColumnListView from '@components/core/DoubleColumnListView'
+import usePlanetList from './hooks/usePlanetList'
+import {ListItemCardProps} from '@components/core/ListItemCard'
+import {useTranslation} from 'react-i18next'
 import placeholder from '@assets/star-wars-logo.jpg'
-import useStarshipList from './hooks/useStarshipList'
+import {StyleProp, ViewStyle} from 'react-native'
 
-const doubleColumnListViewStyle = {
+const doubleColumnListViewStyle: StyleProp<ViewStyle> = {
   flex: 1
 }
 
-const StarshipListScreen = () => {
+const PlanetListScreen = () => {
   const {t} = useTranslation()
 
   const {
@@ -18,20 +19,24 @@ const StarshipListScreen = () => {
     loadingMore,
     hasNextPage,
     data,
-    refreshStarships,
-    loadMoreStarships
-  } = useStarshipList()
+    refreshPlanets,
+    loadMorePlanets
+  } = usePlanetList()
 
-  const starships: ListItemCardProps[] = useMemo(() => {
+  const planets: ListItemCardProps[] = useMemo(() => {
     return (
-      data?.allStarships?.edges?.map<ListItemCardProps>(starship => {
-        const node = starship?.node
+      data?.allPlanets?.edges?.map<ListItemCardProps>(planet => {
+        const node = planet?.node
 
         return {
           id: node?.id?.toString() ?? '',
           title: node?.name ?? '',
-          subtitle: node?.model ?? '',
-          content: `${t('starships.class')}:\n${node?.starshipClass ?? ''}`,
+          subtitle: `${t('planets.population')}: ${
+            node?.population?.toString() ?? ''
+          }`,
+          content: `${t('planets.diameter')}:\n${
+            node?.diameter?.toString() ?? ''
+          }`,
           src: placeholder
         }
       }) ?? []
@@ -46,12 +51,12 @@ const StarshipListScreen = () => {
       loadingMore={loadingMore}
       refreshing={refreshing}
       hasNextPage={hasNextPage}
-      onRefresh={refreshStarships}
-      onLoadMore={loadMoreStarships}
+      onRefresh={refreshPlanets}
+      onLoadMore={loadMorePlanets}
       style={doubleColumnListViewStyle}
-      data={starships}
+      data={planets}
     />
   )
 }
 
-export default StarshipListScreen
+export default PlanetListScreen

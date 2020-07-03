@@ -23,7 +23,9 @@
       },
       "planets": {
         "title": "Planets",
-        "subtitle": "All the planets from the original six movies."
+        "subtitle": "All the planets from the original six movies.",
+        "population": "Population",
+        "diameter": "Diameter (in km)"
       },
       "starships": {
         "title": "Starships",

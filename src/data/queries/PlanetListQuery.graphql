@@ -1,0 +1,16 @@
+query PlanetList($first: Int, $after: String) {
+  allPlanets(first: $first, after: $after) {
+    edges {
+      node {
+        id
+        name
+        diameter
+        population
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
