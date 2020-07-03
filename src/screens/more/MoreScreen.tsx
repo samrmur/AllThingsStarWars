@@ -34,7 +34,7 @@ const MoreScreen = () => {
           accessibilityStates
           title={t('species.title')}
           onPress={() => {
-            navigation.navigate('Species')
+            navigation.navigate('SpeciesList')
           }}
           left={(props: ListItemLeftProps) => (
             <View style={containerStyle}>
@@ -64,6 +64,9 @@ const MoreScreen = () => {
         <List.Item
           accessibilityStates
           title={t('starships.title')}
+          onPress={() => {
+            navigation.navigate('StarshipsList')
+          }}
           left={(props: ListItemLeftProps) => (
             <View style={containerStyle}>
               <FontAwesome5

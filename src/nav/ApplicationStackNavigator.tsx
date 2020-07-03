@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react'
+import React from 'react'
 import {
   StackNavigationOptions,
   createStackNavigator,
@@ -8,6 +8,7 @@ import MainBottomTabNavigator from './MainBottomTabNavigator'
 import SpeciesListScreen from '@screens/species/SpeciesListScreen'
 import {Appbar} from 'react-native-paper'
 import {useTranslation} from 'react-i18next'
+import StarshipListScreen from '@screens/starships/StarshipListScreen'
 
 const noHeaderOptions = {
   headerShown: false
@@ -34,10 +35,6 @@ const ApplicationStackNavigator = () => {
   const {t} = useTranslation()
   const Stack = createStackNavigator()
 
-  const speciesHeader = useMemo(() => {
-    return withHeader(t('species.title'), t('species.subtitle'))
-  }, [t])
-
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -46,9 +43,14 @@ const ApplicationStackNavigator = () => {
         options={noHeaderOptions}
       />
       <Stack.Screen
-        name="Species"
+        name="SpeciesList"
         component={SpeciesListScreen}
-        options={speciesHeader}
+        options={withHeader(t('species.title'), t('species.subtitle'))}
+      />
+      <Stack.Screen
+        name="StarshipsList"
+        component={StarshipListScreen}
+        options={withHeader(t('starships.title'), t('starships.subtitle'))}
       />
     </Stack.Navigator>
   )

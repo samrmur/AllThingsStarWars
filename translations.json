@@ -27,7 +27,8 @@
       },
       "starships": {
         "title": "Starships",
-        "subtitle": "All the starships used in the original six movies."
+        "subtitle": "All the starships used in the original six movies.",
+        "class": "Starship Class"
       },
       "vehicles": {
         "title": "Vehicles",
