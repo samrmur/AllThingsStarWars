@@ -101,6 +101,9 @@ const MoreScreen = () => {
         <List.Item
           accessibilityStates
           title={t('settings.title')}
+          onPress={() => {
+            navigation.navigate('Settings')
+          }}
           left={(props: ListItemLeftProps) => (
             <View style={containerStyle}>
               <Ionicons
