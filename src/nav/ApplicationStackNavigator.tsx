@@ -11,6 +11,7 @@ import {useTranslation} from 'react-i18next'
 import StarshipListScreen from '@screens/starships/StarshipListScreen'
 import PlanetListScreen from '@screens/planets/PlanetListScreen'
 import VehicleListScreen from '@screens/vehicles/VehicleListScreen'
+import SettingsScreen from '@screens/settings/SettingsScreen'
 
 const noHeaderOptions = {
   headerShown: false
@@ -63,6 +64,11 @@ const ApplicationStackNavigator = () => {
         name="VehicleList"
         component={VehicleListScreen}
         options={withHeader(t('vehicles.title'), t('vehicles.subtitle'))}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={withHeader(t('settings.title'))}
       />
     </Stack.Navigator>
   )
