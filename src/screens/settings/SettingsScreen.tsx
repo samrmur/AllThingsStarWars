@@ -5,21 +5,24 @@ import {useTranslation} from 'react-i18next'
 import {useTheme} from 'react-native-paper'
 import {setDarkTheme} from '../../../src/App'
 
-const containerStyle: StyleProp<ViewStyle> = {
-  margin: 10
-}
-
 const SettingsScreen = () => {
   const {t} = useTranslation()
-  const {dark} = useTheme()
-  const darkThemeText = useMemo(() => t('settings.enableDarkTheme'), [t])
+  const theme = useTheme()
+
+  const containerStyle: StyleProp<ViewStyle> = useMemo(() => {
+    return {
+      flex: 1,
+      padding: 10,
+      backgroundColor: theme.colors.background
+    }
+  }, [theme])
 
   return (
     <View style={containerStyle}>
       <SwitchWithLabel
-        label={darkThemeText}
+        label={t('settings.enableDarkTheme')}
         disabled={false}
-        value={dark}
+        value={theme.dark}
         onValueChange={setDarkTheme}
       />
     </View>
