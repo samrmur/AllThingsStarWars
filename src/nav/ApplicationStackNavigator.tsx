@@ -10,6 +10,7 @@ import {Appbar} from 'react-native-paper'
 import {useTranslation} from 'react-i18next'
 import StarshipListScreen from '@screens/starships/StarshipListScreen'
 import PlanetListScreen from '@screens/planets/PlanetListScreen'
+import VehicleListScreen from '@screens/vehicles/VehicleListScreen'
 
 const noHeaderOptions = {
   headerShown: false
@@ -57,6 +58,11 @@ const ApplicationStackNavigator = () => {
         name="PlanetList"
         component={PlanetListScreen}
         options={withHeader(t('planets.title'), t('planets.subtitle'))}
+      />
+      <Stack.Screen
+        name="VehicleList"
+        component={VehicleListScreen}
+        options={withHeader(t('vehicles.title'), t('vehicles.subtitle'))}
       />
     </Stack.Navigator>
   )

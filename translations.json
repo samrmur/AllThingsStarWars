@@ -34,7 +34,8 @@
       },
       "vehicles": {
         "title": "Vehicles",
-        "subtitle": "All the vehicles used in the original six movies."
+        "subtitle": "All the vehicles used in the original six movies.",
+        "class": "Vehicle Class"
       },
       "settings": {
         "title": "Settings"
