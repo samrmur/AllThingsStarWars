@@ -84,6 +84,9 @@ const MoreScreen = () => {
         <List.Item
           accessibilityStates
           title={t('vehicles.title')}
+          onPress={() => {
+            navigation.navigate('VehicleList')
+          }}
           left={(props: ListItemLeftProps) => (
             <View style={containerStyle}>
               <FontAwesome5
