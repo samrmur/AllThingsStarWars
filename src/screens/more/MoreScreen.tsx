@@ -1,5 +1,5 @@
-import React from 'react'
-import {List} from 'react-native-paper'
+import React, {useMemo} from 'react'
+import {List, useTheme} from 'react-native-paper'
 import {useTranslation} from 'react-i18next'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -17,17 +17,25 @@ interface ListItemLeftProps {
   }
 }
 
-const containerStyle: StyleProp<ViewStyle> = {
+const iconContainerStyle: StyleProp<ViewStyle> = {
   width: 50,
   justifyContent: 'center'
 }
 
 const MoreScreen = () => {
   const {t} = useTranslation()
+  const theme = useTheme()
   const navigation = useNavigation()
 
+  const containerStyle: StyleProp<ViewStyle> = useMemo(() => {
+    return {
+      flex: 1,
+      backgroundColor: theme.colors.background
+    }
+  }, [theme])
+
   return (
-    <View>
+    <View style={containerStyle}>
       <AppbarNavigationHeader title={t('more.title')} />
       <List.Section style={{marginStart: 5, marginEnd: 5}} accessibilityStates>
         <List.Item
@@ -37,7 +45,7 @@ const MoreScreen = () => {
             navigation.navigate('SpeciesList')
           }}
           left={(props: ListItemLeftProps) => (
-            <View style={containerStyle}>
+            <View style={iconContainerStyle}>
               <MaterialCommunityIcons
                 name="alien"
                 size={24}
@@ -54,7 +62,7 @@ const MoreScreen = () => {
             navigation.navigate('PlanetList')
           }}
           left={props => (
-            <View style={containerStyle}>
+            <View style={iconContainerStyle}>
               <Ionicons
                 name="md-planet"
                 size={24}
@@ -71,7 +79,7 @@ const MoreScreen = () => {
             navigation.navigate('StarshipList')
           }}
           left={(props: ListItemLeftProps) => (
-            <View style={containerStyle}>
+            <View style={iconContainerStyle}>
               <FontAwesome5
                 name="space-shuttle"
                 size={24}
@@ -88,7 +96,7 @@ const MoreScreen = () => {
             navigation.navigate('VehicleList')
           }}
           left={(props: ListItemLeftProps) => (
-            <View style={containerStyle}>
+            <View style={iconContainerStyle}>
               <FontAwesome5
                 name="car"
                 size={24}
@@ -105,7 +113,7 @@ const MoreScreen = () => {
             navigation.navigate('Settings')
           }}
           left={(props: ListItemLeftProps) => (
-            <View style={containerStyle}>
+            <View style={iconContainerStyle}>
               <Ionicons
                 name="md-settings"
                 size={24}

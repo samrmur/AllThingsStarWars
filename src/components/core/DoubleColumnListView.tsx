@@ -40,13 +40,13 @@ const DoubleColumnListView = ({
 
   const loadingComponent = useMemo(() => {
     const mergedStyle: StyleProp<ViewStyle> = [
-      {justifyContent: 'center'},
+      {justifyContent: 'center', backgroundColor: theme.colors.background},
       style
     ]
 
     return (
       <View style={mergedStyle}>
-        <ActivityIndicator color={theme.colors.primary} size="large" />
+        <ActivityIndicator color={theme.colors.accent} size="large" />
       </View>
     )
   }, [style, theme])
@@ -55,8 +55,9 @@ const DoubleColumnListView = ({
     return (
       <RefreshControl
         onRefresh={onRefresh}
-        tintColor={theme.colors.primary}
-        colors={[theme.colors.primary]}
+        progressBackgroundColor={theme.colors.primary}
+        tintColor={theme.colors.accent}
+        colors={[theme.colors.accent]}
         refreshing={refreshing}
       />
     )
@@ -64,7 +65,11 @@ const DoubleColumnListView = ({
 
   const footer = useMemo(() => {
     return loadingMore ? (
-      <ActivityIndicator color={theme.colors.primary} size="small" />
+      <ActivityIndicator
+        style={{margin: 5}}
+        color={theme.colors.accent}
+        size="large"
+      />
     ) : null
   }, [loadingMore, theme])
 
@@ -104,13 +109,17 @@ const DoubleColumnListView = ({
     []
   )
 
+  const flatListStyle = useMemo(() => {
+    return [style, {backgroundColor: theme.colors.background}]
+  }, [style, theme])
+
   return loading ? (
     loadingComponent
   ) : (
     <FlatList
       numColumns={2}
       data={data}
-      style={style}
+      style={flatListStyle}
       scrollIndicatorInsets={scrollIndicatorInsets}
       refreshControl={refreshControl}
       keyExtractor={keyExtractor}
