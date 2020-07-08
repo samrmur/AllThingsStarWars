@@ -16,7 +16,8 @@ module.exports = {
           "@data": "./src/data",
           "@nav": "./src/nav",
           "@services": "./src/services",
-          "@screens": "./src/screens"
+          "@screens": "./src/screens",
+          "@helpers": "./src/helpers"
         }
       },
     ],

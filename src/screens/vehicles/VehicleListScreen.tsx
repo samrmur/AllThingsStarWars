@@ -4,6 +4,7 @@ import {ListItemCardProps} from '@components/core/ListItemCard'
 import DoubleColumnListView from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
 import useVehicleList from './hooks/useVehicleList'
+import {apolloErrorExtractor} from '@helpers/apolloHelpers'
 
 const doubleColumnListViewStyle = {
   flex: 1
@@ -18,9 +19,14 @@ const VehicleListScreen = () => {
     loadingMore,
     hasNextPage,
     data,
+    error,
     refreshVehicles,
     loadMoreVehicles
   } = useVehicleList()
+
+  const extractedError = useMemo(() => {
+    return apolloErrorExtractor(error)
+  }, [error])
 
   const vehicles: ListItemCardProps[] = useMemo(() => {
     return (
@@ -48,6 +54,7 @@ const VehicleListScreen = () => {
       hasNextPage={hasNextPage}
       onRefresh={refreshVehicles}
       onLoadMore={loadMoreVehicles}
+      error={extractedError}
       style={doubleColumnListViewStyle}
       data={vehicles}
     />

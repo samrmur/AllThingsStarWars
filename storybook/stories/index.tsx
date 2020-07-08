@@ -5,6 +5,7 @@ import ListItemCardPage from './components/ListItemCardPage'
 import DoubleColumnListViewPage from './components/DoubleColumnListViewPage'
 import AppbarNavigationHeaderPage from './components/AppbarNavigationHeaderPage'
 import SwitchWithLabelPage from './components/SwitchWithLabelPage'
+import FullScreenErrorPage from './components/FullScreenErrorPage'
 
 storiesOf('Components Section', module)
   .add('List Item Cards', () => <ListItemCardPage />)
@@ -27,5 +28,11 @@ storiesOf('Components Section', module)
       value={boolean('value', false)}
       disabled={boolean('disabled', false)}
       onValueChange={() => {}}
+    />
+  ))
+  .add('Full Screen Error', () => (
+    <FullScreenErrorPage
+      name={text('name', 'Network error')}
+      message={text('message', 'Please turn on your Wi-Fi')}
     />
   ))

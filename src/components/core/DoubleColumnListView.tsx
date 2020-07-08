@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import ListItemCard, {ListItemCardProps} from './ListItemCard'
 import {useTheme} from 'react-native-paper'
+import FullScreenError, {FullScreenErrorProps} from './FullScreenError'
 
 export interface DoubleColumnListViewProps {
   loading: boolean
@@ -19,7 +20,12 @@ export interface DoubleColumnListViewProps {
   onRefresh?: () => void
   onLoadMore?: () => void
   data: ListItemCardProps[]
+  error?: FullScreenErrorProps
   style?: StyleProp<ViewStyle>
+}
+
+export const fullScreenStyle: StyleProp<ViewStyle> = {
+  flex: 1
 }
 
 const scrollIndicatorInsets = {
@@ -34,6 +40,7 @@ const DoubleColumnListView = ({
   onRefresh,
   onLoadMore,
   data,
+  error,
   style
 }: DoubleColumnListViewProps) => {
   const theme = useTheme()
@@ -113,21 +120,27 @@ const DoubleColumnListView = ({
     return [style, {backgroundColor: theme.colors.background}]
   }, [style, theme])
 
-  return loading ? (
-    loadingComponent
-  ) : (
-    <FlatList
-      numColumns={2}
-      data={data}
-      style={flatListStyle}
-      scrollIndicatorInsets={scrollIndicatorInsets}
-      refreshControl={refreshControl}
-      keyExtractor={keyExtractor}
-      onEndReached={loadMoreIfPossible}
-      renderItem={renderItem}
-      ListFooterComponent={footer}
-    />
-  )
+  console.log(error)
+
+  if (loading) {
+    return loadingComponent
+  } else if (data.length === 0 && error !== undefined) {
+    return <FullScreenError name={error.name} message={error.message} />
+  } else {
+    return (
+      <FlatList
+        numColumns={2}
+        data={data}
+        style={flatListStyle}
+        scrollIndicatorInsets={scrollIndicatorInsets}
+        refreshControl={refreshControl}
+        keyExtractor={keyExtractor}
+        onEndReached={loadMoreIfPossible}
+        renderItem={renderItem}
+        ListFooterComponent={footer}
+      />
+    )
+  }
 }
 
 export default DoubleColumnListView

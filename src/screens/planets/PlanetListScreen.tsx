@@ -1,14 +1,12 @@
 import React, {useMemo} from 'react'
-import DoubleColumnListView from '@components/core/DoubleColumnListView'
+import DoubleColumnListView, {
+  fullScreenStyle
+} from '@components/core/DoubleColumnListView'
 import usePlanetList from './hooks/usePlanetList'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import {useTranslation} from 'react-i18next'
 import placeholder from '@assets/star-wars-logo.jpg'
-import {StyleProp, ViewStyle} from 'react-native'
-
-const doubleColumnListViewStyle: StyleProp<ViewStyle> = {
-  flex: 1
-}
+import {apolloErrorExtractor} from '@helpers/apolloHelpers'
 
 const PlanetListScreen = () => {
   const {t} = useTranslation()
@@ -19,9 +17,14 @@ const PlanetListScreen = () => {
     loadingMore,
     hasNextPage,
     data,
+    error,
     refreshPlanets,
     loadMorePlanets
   } = usePlanetList()
+
+  const extractedError = useMemo(() => {
+    return apolloErrorExtractor(error)
+  }, [error])
 
   const planets: ListItemCardProps[] = useMemo(() => {
     return (
@@ -53,7 +56,8 @@ const PlanetListScreen = () => {
       hasNextPage={hasNextPage}
       onRefresh={refreshPlanets}
       onLoadMore={loadMorePlanets}
-      style={doubleColumnListViewStyle}
+      style={fullScreenStyle}
+      error={extractedError}
       data={planets}
     />
   )

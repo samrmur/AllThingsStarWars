@@ -3,16 +3,15 @@ import {View, StyleProp, ViewStyle} from 'react-native'
 import {useTranslation} from 'react-i18next'
 import useCharacterList from './hooks/useCharacterList'
 import {ListItemCardProps} from '@components/core/ListItemCard'
-import DoubleColumnListView from '@components/core/DoubleColumnListView'
+import DoubleColumnListView, {
+  fullScreenStyle
+} from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
 import AppbarNavigationHeader from '@components/core/AppbarNavigationHeader'
+import {apolloErrorExtractor} from '@helpers/apolloHelpers'
 
 const viewStyle: StyleProp<ViewStyle> = {
   flexGrow: 1
-}
-
-const doubleColumnListViewStyle: StyleProp<ViewStyle> = {
-  flex: 1
 }
 
 const CharacterListScreen = () => {
@@ -24,9 +23,14 @@ const CharacterListScreen = () => {
     loadingMore,
     hasNextPage,
     data,
+    error,
     refreshCharacters,
     loadMoreCharacters
   } = useCharacterList()
+
+  const extractedError = useMemo(() => {
+    return apolloErrorExtractor(error)
+  }, [error])
 
   const characters: ListItemCardProps[] = useMemo(() => {
     return (
@@ -64,7 +68,8 @@ const CharacterListScreen = () => {
         loadingMore={loadingMore}
         refreshing={refreshing}
         hasNextPage={hasNextPage}
-        style={doubleColumnListViewStyle}
+        style={fullScreenStyle}
+        error={extractedError}
         onRefresh={refreshCharacters}
         onLoadMore={loadMoreCharacters}
         data={characters}
