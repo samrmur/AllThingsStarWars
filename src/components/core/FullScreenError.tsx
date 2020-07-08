@@ -11,11 +11,9 @@ export interface FullScreenErrorProps {
 const FullScreenError = ({name, message}: FullScreenErrorProps) => {
   const theme: Theme = useTheme()
   const fullScreenErrorStyle: StyleProp<ViewStyle> = {
-    backgroundColor: theme.colors.background,
     flex: 1,
-    minHeight: '100%',
-    justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 
   return (

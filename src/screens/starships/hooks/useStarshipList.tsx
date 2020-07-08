@@ -3,6 +3,7 @@ import StarshipListQuery, {
   StarshipListQueryData
 } from '@data/queries/StarshipListQuery.graphql'
 import {useQuery} from '@apollo/react-hooks'
+import {refreshController} from '@helpers/apolloHelpers'
 
 const PAGE_SIZE = 20
 
@@ -52,6 +53,10 @@ const useStarshipList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, fetchMore])
 
+  const refreshStarships = useCallback(() => {
+    refreshController(refetch)
+  }, [refetch])
+
   return {
     loading,
     refreshing,
@@ -59,7 +64,7 @@ const useStarshipList = () => {
     hasNextPage,
     data,
     error,
-    refreshStarships: refetch,
+    refreshStarships,
     loadMoreStarships
   }
 }

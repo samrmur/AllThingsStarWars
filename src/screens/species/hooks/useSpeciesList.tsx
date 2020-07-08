@@ -3,6 +3,7 @@ import SpeciesListQuery, {
   SpeciesListQueryData
 } from '@data/queries/SpeciesListQuery.graphql'
 import {useQuery} from '@apollo/react-hooks'
+import {refreshController} from '@helpers/apolloHelpers'
 
 const PAGE_SIZE = 20
 
@@ -52,6 +53,10 @@ const useSpeciesList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, fetchMore])
 
+  const refreshSpecies = useCallback(() => {
+    refreshController(refetch)
+  }, [refetch])
+
   return {
     loading,
     refreshing,
@@ -59,7 +64,7 @@ const useSpeciesList = () => {
     hasNextPage,
     data,
     error,
-    refreshSpecies: refetch,
+    refreshSpecies,
     loadMoreSpecies
   }
 }
