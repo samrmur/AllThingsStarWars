@@ -3,6 +3,7 @@ import VehicleListQuery, {
   VehicleListQueryData
 } from '@data/queries/VehicleListQuery.graphql'
 import {useQuery} from '@apollo/react-hooks'
+import {refreshController} from '@helpers/apolloHelpers'
 
 const PAGE_SIZE = 20
 
@@ -52,6 +53,10 @@ const useVehicleList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, fetchMore])
 
+  const refreshVehicles = useCallback(() => {
+    refreshController(refetch)
+  }, [refetch])
+
   return {
     loading,
     refreshing,
@@ -59,7 +64,7 @@ const useVehicleList = () => {
     hasNextPage,
     data,
     error,
-    refreshVehicles: refetch,
+    refreshVehicles,
     loadMoreVehicles
   }
 }

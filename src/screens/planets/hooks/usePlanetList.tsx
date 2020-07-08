@@ -3,6 +3,7 @@ import PlanetListQuery, {
   PlanetListQueryData
 } from '@data/queries/PlanetListQuery.graphql'
 import {useQuery} from '@apollo/react-hooks'
+import {refreshController} from '@helpers/apolloHelpers'
 
 const PAGE_SIZE = 20
 
@@ -52,6 +53,10 @@ const usePlanetList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, fetchMore])
 
+  const refreshPlanets = useCallback(() => {
+    refreshController(refetch)
+  }, [refetch])
+
   return {
     loading,
     refreshing,
@@ -59,7 +64,7 @@ const usePlanetList = () => {
     hasNextPage,
     data,
     error,
-    refreshPlanets: refetch,
+    refreshPlanets,
     loadMorePlanets
   }
 }

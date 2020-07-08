@@ -3,6 +3,7 @@ import CharacterListQuery, {
   CharacterListQueryData
 } from '@data/queries/CharacterListQuery.graphql'
 import {useCallback} from 'react'
+import {refreshController} from '@helpers/apolloHelpers'
 
 const PAGE_SIZE = 20
 
@@ -52,6 +53,10 @@ const useCharacterList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, fetchMore])
 
+  const refreshCharacters = useCallback(() => {
+    refreshController(refetch)
+  }, [refetch])
+
   return {
     loading,
     refreshing,
@@ -59,7 +64,7 @@ const useCharacterList = () => {
     hasNextPage,
     data,
     error,
-    refreshCharacters: refetch,
+    refreshCharacters,
     loadMoreCharacters
   }
 }

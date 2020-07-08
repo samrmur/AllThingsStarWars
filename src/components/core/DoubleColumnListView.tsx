@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo} from 'react'
-import {FlatList} from 'react-native-gesture-handler'
+import {FlatList, ScrollView} from 'react-native-gesture-handler'
 import {
   View,
   StyleProp,
@@ -120,12 +120,17 @@ const DoubleColumnListView = ({
     return [style, {backgroundColor: theme.colors.background}]
   }, [style, theme])
 
-  console.log(error)
-
   if (loading) {
     return loadingComponent
   } else if (data.length === 0 && error !== undefined) {
-    return <FullScreenError name={error.name} message={error.message} />
+    return (
+      <ScrollView
+        contentContainerStyle={flatListStyle}
+        refreshControl={refreshControl}
+      >
+        <FullScreenError name={error.name} message={error.message} />
+      </ScrollView>
+    )
   } else {
     return (
       <FlatList
