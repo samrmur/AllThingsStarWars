@@ -1,24 +1,27 @@
 import React, {useMemo} from 'react'
-import DoubleColumnListView from '@components/core/DoubleColumnListView'
+import DoubleColumnListView, {
+  fullScreenStyle
+} from '@components/core/DoubleColumnListView'
 import useFilmList from './hooks/useFilmList'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import {useTranslation} from 'react-i18next'
 import placeholder from '@assets/star-wars-logo.jpg'
 import AppBarNavigationHeader from '@components/core/AppbarNavigationHeader'
 import {View, StyleProp, ViewStyle} from 'react-native'
+import {apolloErrorExtractor} from '@helpers/apolloHelpers'
 
 const viewStyle: StyleProp<ViewStyle> = {
   flexGrow: 1
 }
 
-const doubleColumnListViewStyle: StyleProp<ViewStyle> = {
-  flex: 1
-}
-
 const FilmListScreen = () => {
   const {t} = useTranslation()
 
-  const {loading, refreshing, data, refreshFilms} = useFilmList()
+  const {loading, refreshing, data, error, refreshFilms} = useFilmList()
+
+  const extractedError = useMemo(() => {
+    return apolloErrorExtractor(error)
+  }, [error])
 
   const films: ListItemCardProps[] = useMemo(() => {
     return (
@@ -54,7 +57,8 @@ const FilmListScreen = () => {
         loadingMore={false}
         refreshing={refreshing}
         hasNextPage={false}
-        style={doubleColumnListViewStyle}
+        style={fullScreenStyle}
+        error={extractedError}
         onRefresh={refreshFilms}
         data={films}
       />

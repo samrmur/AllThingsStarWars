@@ -1,13 +1,12 @@
 import React, {useMemo} from 'react'
 import {useTranslation} from 'react-i18next'
 import {ListItemCardProps} from '@components/core/ListItemCard'
-import DoubleColumnListView from '@components/core/DoubleColumnListView'
+import DoubleColumnListView, {
+  fullScreenStyle
+} from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
 import useSpeciesList from './hooks/useSpeciesList'
-
-const doubleColumnListViewStyle = {
-  flex: 1
-}
+import {apolloErrorExtractor} from '@helpers/apolloHelpers'
 
 const SpeciesListScreen = () => {
   const {t} = useTranslation()
@@ -18,9 +17,14 @@ const SpeciesListScreen = () => {
     loadingMore,
     hasNextPage,
     data,
+    error,
     refreshSpecies,
     loadMoreSpecies
   } = useSpeciesList()
+
+  const extractedError = useMemo(() => {
+    return apolloErrorExtractor(error)
+  }, [error])
 
   const species: ListItemCardProps[] = useMemo(() => {
     return (
@@ -50,7 +54,8 @@ const SpeciesListScreen = () => {
       hasNextPage={hasNextPage}
       onRefresh={refreshSpecies}
       onLoadMore={loadMoreSpecies}
-      style={doubleColumnListViewStyle}
+      style={fullScreenStyle}
+      error={extractedError}
       data={species}
     />
   )

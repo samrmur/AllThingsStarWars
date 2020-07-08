@@ -1,13 +1,12 @@
 import React, {useMemo} from 'react'
 import {useTranslation} from 'react-i18next'
 import {ListItemCardProps} from '@components/core/ListItemCard'
-import DoubleColumnListView from '@components/core/DoubleColumnListView'
+import DoubleColumnListView, {
+  fullScreenStyle
+} from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
 import useStarshipList from './hooks/useStarshipList'
-
-const doubleColumnListViewStyle = {
-  flex: 1
-}
+import {apolloErrorExtractor} from '@helpers/apolloHelpers'
 
 const StarshipListScreen = () => {
   const {t} = useTranslation()
@@ -18,9 +17,14 @@ const StarshipListScreen = () => {
     loadingMore,
     hasNextPage,
     data,
+    error,
     refreshStarships,
     loadMoreStarships
   } = useStarshipList()
+
+  const extractedError = useMemo(() => {
+    return apolloErrorExtractor(error)
+  }, [error])
 
   const starships: ListItemCardProps[] = useMemo(() => {
     return (
@@ -48,7 +52,8 @@ const StarshipListScreen = () => {
       hasNextPage={hasNextPage}
       onRefresh={refreshStarships}
       onLoadMore={loadMoreStarships}
-      style={doubleColumnListViewStyle}
+      style={fullScreenStyle}
+      error={extractedError}
       data={starships}
     />
   )
