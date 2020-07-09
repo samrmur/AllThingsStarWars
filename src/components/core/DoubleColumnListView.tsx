@@ -137,6 +137,10 @@ const DoubleColumnListView = ({
         numColumns={2}
         data={data}
         style={flatListStyle}
+        removeClippedSubviews
+        initialNumToRender={6}
+        maxToRenderPerBatch={8}
+        updateCellsBatchingPeriod={100}
         scrollIndicatorInsets={scrollIndicatorInsets}
         refreshControl={refreshControl}
         keyExtractor={keyExtractor}
