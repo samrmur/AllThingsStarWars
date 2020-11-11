@@ -1,5 +1,5 @@
 # AllThingsStarWars
-A React Native application about containing Star Wars information from the first six movies. All the information comes from the a hosted server that runs the following the GraphQL server: https://github.com/graphql/swapi-graphql
+A React Native application about containing Star Wars information from the first six movies. All the information comes from the a hosted server that runs the following the GraphQL application: https://github.com/graphql/swapi-graphql
 
 ### Stack
 - React
