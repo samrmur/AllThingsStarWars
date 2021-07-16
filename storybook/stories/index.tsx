@@ -27,6 +27,7 @@ storiesOf('Components Section', module)
       label={text('label', 'Enable Feature')}
       value={boolean('value', false)}
       disabled={boolean('disabled', false)}
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       onValueChange={() => {}}
     />
   ))
