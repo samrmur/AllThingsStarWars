@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "postinstall": "patch-package",
     "start": "STORYBOOK=false node node_modules/react-native/local-cli/cli.js start --resetCache",
     "storybook": "((adb reverse tcp:7007 tcp:7007 || true) && start-storybook) & STORYBOOK=true node node_modules/react-native/local-cli/cli.js start --resetCache",
     "code-gen": "yarn download-schema && yarn convert-schema && yarn generate-types",
@@ -30,7 +31,7 @@
     "i18next": "^19.5.1",
     "react": "16.11.0",
     "react-i18next": "^11.7.0",
-    "react-native": "0.62.2",
+    "react-native": "0.62.3",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-paper": "^3.10.1",
     "react-native-reanimated": "^1.9.0",
@@ -67,6 +68,7 @@
     "graphql-typescript-definitions": "^0.18.1",
     "jest": "^26.0.1",
     "metro-react-native-babel-preset": "^0.59.0",
+    "patch-package": "^6.4.7",
     "prettier": "^2.0.5",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.9.5"
