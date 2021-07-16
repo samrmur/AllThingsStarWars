@@ -1,13 +1,19 @@
-import React, {useMemo} from 'react'
+import React, {useCallback, useMemo} from 'react'
 import {View, ViewStyle, StyleProp} from 'react-native'
 import SwitchWithLabel from '@components/core/SwitchWithLabel'
 import {useTranslation} from 'react-i18next'
 import {useTheme} from 'react-native-paper'
-import {setDarkTheme} from '../../../src/App'
+import {usePaperThemeManager} from '@services/theme/manager/usePaperThemeManager'
 
 const SettingsScreen = () => {
   const {t} = useTranslation()
   const theme = useTheme()
+  const themeManager = usePaperThemeManager()
+
+  const setThemeSettings = useCallback(
+    (enabled: boolean) => themeManager.update(enabled),
+    [themeManager]
+  )
 
   const containerStyle: StyleProp<ViewStyle> = useMemo(() => {
     return {
@@ -23,7 +29,7 @@ const SettingsScreen = () => {
         label={t('settings.enableDarkTheme')}
         disabled={false}
         value={theme.dark}
-        onValueChange={setDarkTheme}
+        onValueChange={setThemeSettings}
       />
     </View>
   )
