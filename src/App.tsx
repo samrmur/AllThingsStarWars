@@ -8,12 +8,12 @@
 
 import React from 'react'
 import {NavigationContainer} from '@react-navigation/native'
-import {ApolloProvider} from '@apollo/react-hooks'
 import StarWarsApolloClient from '@services/graphql/StarWarsApolloClient'
 import ApplicationStackNavigator from '@nav/ApplicationStackNavigator'
 import {CustomPaperProvider} from '@services/theme/CustomPaperProvider'
 import {lightTheme, darkTheme} from '@services/theme/themes'
 import {PaperThemeManager} from '@services/theme/manager/PaperThemeManager'
+import {ApolloProvider} from '@apollo/client'
 
 const manager = new PaperThemeManager(lightTheme, darkTheme)
 

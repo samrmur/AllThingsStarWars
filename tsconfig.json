@@ -18,8 +18,7 @@
       "@data/*": ["./src/data/*"],
       "@nav/*": ["./src/nav/*"],
       "@screens/*": ["./src/screens/*"],
-      "@services/*": ["src/services/*"],
-      "@helpers/*": ["src/helpers/*"]
+      "@services/*": ["src/services/*"]
     }
   },
   "exclude": [

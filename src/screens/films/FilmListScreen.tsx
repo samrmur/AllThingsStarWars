@@ -1,14 +1,16 @@
-import React, {useMemo} from 'react'
+import React from 'react'
 import DoubleColumnListView, {
   fullScreenStyle
 } from '@components/core/DoubleColumnListView'
-import useFilmList from './hooks/useFilmList'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import {useTranslation} from 'react-i18next'
 import placeholder from '@assets/star-wars-logo.jpg'
 import AppBarNavigationHeader from '@components/core/AppbarNavigationHeader'
 import {View, StyleProp, ViewStyle} from 'react-native'
-import {apolloErrorExtractor} from '@helpers/apolloHelpers'
+import {useQuery, NetworkStatus} from '@apollo/client'
+import FilmListQuery, {
+  FilmListQueryData
+} from '../../data/queries/FilmListQuery.graphql'
 
 const viewStyle: StyleProp<ViewStyle> = {
   flexGrow: 1
@@ -17,34 +19,32 @@ const viewStyle: StyleProp<ViewStyle> = {
 const FilmListScreen = () => {
   const {t} = useTranslation()
 
-  const {loading, refreshing, data, error, refreshFilms} = useFilmList()
+  const {networkStatus, data, error, refetch} = useQuery<
+    FilmListQueryData,
+    FilmListQueryData.Variables
+  >(FilmListQuery, {
+    variables: {
+      first: 6
+    }
+  })
 
-  const extractedError = useMemo(() => {
-    return apolloErrorExtractor(error)
-  }, [error])
+  const films: ListItemCardProps[] =
+    data?.allFilms?.edges
+      ?.map<ListItemCardProps>(film => {
+        const node = film?.node
 
-  const films: ListItemCardProps[] = useMemo(() => {
-    return (
-      data?.allFilms?.edges
-        ?.map<ListItemCardProps>(film => {
-          const node = film?.node
-
-          return {
-            id: node?.episodeID?.toString() ?? '',
-            title: `${t('films.episode')} ${node?.episodeID}`,
-            subtitle: node?.title ?? '',
-            content:
-              `${t('films.producers')}:\n${node?.producers?.toString()}` ?? '',
-            src: placeholder
-          }
-        })
-        .sort((a, b) => {
-          return Number(a.id) - Number(b.id)
-        }) ?? []
-    )
-    // Disabled for now, false psotive returned from eslint. To be fixed in: https://github.com/facebook/react/pull/19062
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+        return {
+          id: node?.episodeID?.toString() ?? '',
+          title: `${t('films.episode')} ${node?.episodeID}`,
+          subtitle: node?.title ?? '',
+          content:
+            `${t('films.producers')}:\n${node?.producers?.toString()}` ?? '',
+          src: placeholder
+        }
+      })
+      .sort((a, b) => {
+        return Number(a.id) - Number(b.id)
+      }) ?? []
 
   return (
     <View style={viewStyle}>
@@ -53,13 +53,13 @@ const FilmListScreen = () => {
         subtitle={t('films.subtitle')}
       />
       <DoubleColumnListView
-        loading={loading}
+        loading={networkStatus == NetworkStatus.loading}
         loadingMore={false}
-        refreshing={refreshing}
+        refreshing={networkStatus == NetworkStatus.refetch}
         hasNextPage={false}
         style={fullScreenStyle}
-        error={extractedError}
-        onRefresh={refreshFilms}
+        error={error}
+        onRefresh={refetch}
         data={films}
       />
     </View>
