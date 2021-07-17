@@ -1,60 +1,62 @@
-import React, {useMemo} from 'react'
+import React, {useCallback} from 'react'
 import {useTranslation} from 'react-i18next'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import DoubleColumnListView from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
-import useVehicleList from './hooks/useVehicleList'
-import {apolloErrorExtractor} from '@helpers/apolloHelpers'
+import VehicleListQuery, {
+  VehicleListQueryData
+} from '../../data/queries/VehicleListQuery.graphql'
+import {NetworkStatus, useQuery} from '@apollo/client'
 
 const doubleColumnListViewStyle = {
   flex: 1
 }
 
+const FIRST = 20
+
 const VehicleListScreen = () => {
   const {t} = useTranslation()
 
-  const {
-    loading,
-    refreshing,
-    loadingMore,
-    hasNextPage,
-    data,
-    error,
-    refreshVehicles,
-    loadMoreVehicles
-  } = useVehicleList()
+  const {networkStatus, data, error, refetch, fetchMore} = useQuery<
+    VehicleListQueryData,
+    VehicleListQueryData.Variables
+  >(VehicleListQuery, {
+    variables: {
+      first: FIRST
+    }
+  })
 
-  const extractedError = useMemo(() => {
-    return apolloErrorExtractor(error)
-  }, [error])
+  const vehicles: ListItemCardProps[] =
+    data?.allVehicles?.edges?.map<ListItemCardProps>(starship => {
+      const node = starship?.node
 
-  const vehicles: ListItemCardProps[] = useMemo(() => {
-    return (
-      data?.allVehicles?.edges?.map<ListItemCardProps>(starship => {
-        const node = starship?.node
+      return {
+        id: node?.id?.toString() ?? '',
+        title: node?.name ?? '',
+        subtitle: node?.model ?? '',
+        content: `${t('vehicles.class')}:\n${node?.vehicleClass ?? ''}`,
+        src: placeholder
+      }
+    }) ?? []
 
-        return {
-          id: node?.id?.toString() ?? '',
-          title: node?.name ?? '',
-          subtitle: node?.model ?? '',
-          content: `${t('vehicles.class')}:\n${node?.vehicleClass ?? ''}`,
-          src: placeholder
-        }
-      }) ?? []
-    )
-    // Disabled for now, false psotive returned from eslint. To be fixed in: https://github.com/facebook/react/pull/19062
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+  const fetchMoreVehicles = useCallback(() => {
+    fetchMore({
+      variables: {
+        first: FIRST,
+        after: data?.allVehicles?.pageInfo?.endCursor
+      }
+    })
+  }, [data?.allVehicles?.pageInfo?.endCursor, fetchMore])
 
   return (
     <DoubleColumnListView
-      loading={loading}
-      loadingMore={loadingMore}
-      refreshing={refreshing}
-      hasNextPage={hasNextPage}
-      onRefresh={refreshVehicles}
-      onLoadMore={loadMoreVehicles}
-      error={extractedError}
+      loading={networkStatus == NetworkStatus.loading}
+      loadingMore={networkStatus == NetworkStatus.fetchMore}
+      refreshing={networkStatus == NetworkStatus.refetch}
+      hasNextPage={data?.allVehicles?.pageInfo?.hasNextPage == true}
+      onRefresh={refetch}
+      onLoadMore={fetchMoreVehicles}
+      error={error}
       style={doubleColumnListViewStyle}
       data={vehicles}
     />

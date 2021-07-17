@@ -3,25 +3,24 @@ module.exports = {
   env: {
     production: {
       plugins: ['react-native-paper/babel']
-    },
+    }
   },
   plugins: [
     [
       'module-resolver',
       {
-        root: ["./"],
+        root: ['./'],
         alias: {
-          "@assets": "./src/assets",
-          "@components": "./src/components",
-          "@data": "./src/data",
-          "@nav": "./src/nav",
-          "@services": "./src/services",
-          "@screens": "./src/screens",
-          "@helpers": "./src/helpers"
+          '@assets': './src/assets',
+          '@components': './src/components',
+          '@data': './src/data',
+          '@nav': './src/nav',
+          '@services': './src/services',
+          '@screens': './src/screens'
         }
-      },
+      }
     ],
     ['babel-plugin-transform-inline-environment-variables'],
     ['import-graphql']
   ]
-};
+}
