@@ -15,29 +15,29 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout project
+        uses: actions/checkout@v2
 
-    # Installs the dependencies of the project
-    - name: Install the dependencies
-      uses: CultureHQ/actions-yarn@master
-      with:
-        args: install
+      # Setup node
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
 
-    # Runs a typescript check against the project
-    - name: Run typescript check
-      uses: CultureHQ/actions-yarn@master
-      with:
-        args: check-typescript
+      # Installs the dependencies of the project
+      - name: Install dependencies
+        run: yarn install
 
-    # Runs a style check against the project
-    - name: Run style check
-      uses: CultureHQ/actions-yarn@master
-      with:
-        args: check-style
+      # Runs a typescript check against the project
+      - name: Run typescript check
+        run: yarn check-typescript
 
-    # Runs a lint check against the project
-    - name: Run lint check
-      uses: CultureHQ/actions-yarn@master
-      with:
-        args: lint
+      # Runs a style check against the project
+      - name: Run style check
+        run: yarn check-style
+
+      # Runs a lint check against the project
+      - name: Run lint check
+        run: yarn lint
