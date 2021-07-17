@@ -48,3 +48,13 @@ export class PaperThemeManager {
     this.observers.forEach(observer => observer(this.current()))
   }
 }
+
+export function createPaperThemeManager({
+  lightTheme,
+  darkTheme
+}: {
+  lightTheme: Theme
+  darkTheme: Theme
+}) {
+  return new PaperThemeManager(lightTheme, darkTheme)
+}
