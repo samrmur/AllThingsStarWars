@@ -8,9 +8,7 @@ import placeholder from '@assets/star-wars-logo.jpg'
 import AppBarNavigationHeader from '@components/core/AppbarNavigationHeader'
 import {View, StyleProp, ViewStyle} from 'react-native'
 import {useQuery, NetworkStatus} from '@apollo/client'
-import FilmListQuery, {
-  FilmListQueryData
-} from '../../data/queries/FilmListQuery.graphql'
+import FilmListQuery, {FilmListQueryData} from './graphql/FilmListQuery.graphql'
 
 const viewStyle: StyleProp<ViewStyle> = {
   flexGrow: 1

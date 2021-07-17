@@ -7,7 +7,7 @@ import DoubleColumnListView, {
 import placeholder from '@assets/star-wars-logo.jpg'
 import SpeciesListQuery, {
   SpeciesListQueryData
-} from '../../data/queries/SpeciesListQuery.graphql'
+} from './graphql/SpeciesListQuery.graphql'
 import {NetworkStatus, useQuery} from '@apollo/client'
 
 const SpeciesListScreen = () => {

@@ -5,7 +5,7 @@ import DoubleColumnListView from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
 import VehicleListQuery, {
   VehicleListQueryData
-} from '../../data/queries/VehicleListQuery.graphql'
+} from './graphql/VehicleListQuery.graphql'
 import {NetworkStatus, useQuery} from '@apollo/client'
 
 const doubleColumnListViewStyle = {

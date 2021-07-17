@@ -8,7 +8,7 @@ import placeholder from '@assets/star-wars-logo.jpg'
 import {NetworkStatus, useQuery} from '@apollo/client'
 import StarshipListQuery, {
   StarshipListQueryData
-} from '../../data/queries/StarshipListQuery.graphql'
+} from './graphql/StarshipListQuery.graphql'
 
 const FIRST = 20
 

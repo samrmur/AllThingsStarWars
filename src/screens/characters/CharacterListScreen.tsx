@@ -10,7 +10,7 @@ import AppbarNavigationHeader from '@components/core/AppbarNavigationHeader'
 import {NetworkStatus, useQuery} from '@apollo/client'
 import CharacterListQuery, {
   CharacterListQueryData
-} from '../../data/queries/CharacterListQuery.graphql'
+} from './graphql/CharacterListQuery.graphql'
 
 const viewStyle: StyleProp<ViewStyle> = {
   flexGrow: 1
