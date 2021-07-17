@@ -8,18 +8,24 @@
 
 import React from 'react'
 import {NavigationContainer} from '@react-navigation/native'
-import StarWarsApolloClient from '@services/graphql/StarWarsApolloClient'
 import ApplicationStackNavigator from '@nav/ApplicationStackNavigator'
 import {CustomPaperProvider} from '@services/theme/CustomPaperProvider'
-import {lightTheme, darkTheme} from '@services/theme/themes'
-import {PaperThemeManager} from '@services/theme/manager/PaperThemeManager'
-import {ApolloProvider} from '@apollo/client'
+import {ApolloProvider, HttpLink} from '@apollo/client'
+import createStarWarsConfiguredClient from './services/graphql/createStarWarsConfiguredClient'
+import {networkUrl} from '../app.json'
+import {createPaperThemeManager} from './services/theme/manager/PaperThemeManager'
+import {darkTheme, lightTheme} from '@services/theme/themes'
 
-const manager = new PaperThemeManager(lightTheme, darkTheme)
+const manager = createPaperThemeManager({
+  lightTheme: lightTheme,
+  darkTheme: darkTheme
+})
+
+const client = createStarWarsConfiguredClient(new HttpLink({uri: networkUrl}))
 
 const App = () => {
   return (
-    <ApolloProvider client={StarWarsApolloClient}>
+    <ApolloProvider client={client}>
       <CustomPaperProvider manager={manager}>
         <NavigationContainer>
           <ApplicationStackNavigator />
