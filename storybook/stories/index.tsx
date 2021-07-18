@@ -3,7 +3,6 @@ import {storiesOf} from '@storybook/react-native'
 import {boolean, text} from '@storybook/addon-knobs'
 import ListItemCardPage from './components/ListItemCardPage'
 import DoubleColumnListViewPage from './components/DoubleColumnListViewPage'
-import AppbarNavigationHeaderPage from './components/AppbarNavigationHeaderPage'
 import SwitchWithLabelPage from './components/SwitchWithLabelPage'
 import FullScreenErrorPage from './components/FullScreenErrorPage'
 
@@ -14,12 +13,6 @@ storiesOf('Components Section', module)
       loading={boolean('loading', false)}
       refreshing={boolean('refreshing', false)}
       loadingMore={boolean('loadingMore', false)}
-    />
-  ))
-  .add('Appbar Header', () => (
-    <AppbarNavigationHeaderPage
-      title={text('title', 'Characters')}
-      subtitle={text('subtitle', 'A bunch of characters!')}
     />
   ))
   .add('Switch With Label', () => (

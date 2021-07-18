@@ -1,5 +1,4 @@
 import React, {useCallback} from 'react'
-import {useTranslation} from 'react-i18next'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import DoubleColumnListView, {
   fullScreenStyle
@@ -9,11 +8,12 @@ import {NetworkStatus, useQuery} from '@apollo/client'
 import StarshipListQuery, {
   StarshipListQueryData
 } from './graphql/StarshipListQuery.graphql'
+import {useI18n} from '@shopify/react-i18n'
 
 const FIRST = 20
 
 const StarshipListScreen = () => {
-  const {t} = useTranslation()
+  const [i18n] = useI18n()
 
   const {networkStatus, data, error, refetch, fetchMore} = useQuery<
     StarshipListQueryData,
@@ -24,6 +24,8 @@ const StarshipListScreen = () => {
     }
   })
 
+  const starshipClassTitle = i18n.translate('StarshipList.class')
+
   const starships: ListItemCardProps[] =
     data?.allStarships?.edges?.map<ListItemCardProps>(starship => {
       const node = starship?.node
@@ -32,7 +34,7 @@ const StarshipListScreen = () => {
         id: node?.id?.toString() ?? '',
         title: node?.name ?? '',
         subtitle: node?.model ?? '',
-        content: `${t('starships.class')}:\n${node?.starshipClass ?? ''}`,
+        content: `${starshipClassTitle}:\n${node?.starshipClass ?? ''}`,
         src: placeholder
       }
     }) ?? []

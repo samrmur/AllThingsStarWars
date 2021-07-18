@@ -1,12 +1,12 @@
 import React, {useCallback, useMemo} from 'react'
 import {View, ViewStyle, StyleProp} from 'react-native'
 import SwitchWithLabel from '@components/core/SwitchWithLabel'
-import {useTranslation} from 'react-i18next'
 import {useTheme} from 'react-native-paper'
 import {usePaperThemeManager} from '@services/theme/manager/usePaperThemeManager'
+import {useI18n} from '@shopify/react-i18n'
 
 const SettingsScreen = () => {
-  const {t} = useTranslation()
+  const [i18n] = useI18n()
   const theme = useTheme()
   const themeManager = usePaperThemeManager()
 
@@ -26,7 +26,7 @@ const SettingsScreen = () => {
   return (
     <View style={containerStyle}>
       <SwitchWithLabel
-        label={t('settings.enableDarkTheme')}
+        label={i18n.translate('Settings.enableDarkTheme')}
         disabled={false}
         value={theme.dark}
         onValueChange={setThemeSettings}

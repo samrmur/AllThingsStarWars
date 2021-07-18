@@ -3,7 +3,6 @@
  */
 
 import 'react-native-gesture-handler'
-import './i18n'
 
 import {AppRegistry} from 'react-native'
 import App from './src/App'

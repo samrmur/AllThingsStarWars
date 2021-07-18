@@ -1,66 +1,49 @@
-import React, {useMemo} from 'react'
-import {
-  createMaterialBottomTabNavigator,
-  MaterialBottomTabNavigationOptions
-} from '@react-navigation/material-bottom-tabs'
+import React from 'react'
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {useTheme} from 'react-native-paper'
-import FilmListScreen from '@screens/films/FilmListScreen'
-import CharacterListScreen from '@screens/characters/CharacterListScreen'
-import MoreScreen from '@screens/more/MoreScreen'
-import {useTranslation} from 'react-i18next'
-import AppbarNavigationHeader from '@components/core/AppbarNavigationHeader'
+import FilmsStackNavigator from './FilmsStackNavigator'
+import CharactersStackNavigator from './CharactersStackNavigator'
+import MoreStackNavigator from './MoreStackNavigator'
+import {useI18n} from '@shopify/react-i18n'
 
 const MainBottomTabNavigator = () => {
-  const {t} = useTranslation()
+  const [i18n] = useI18n()
   const theme = useTheme()
   const Tab = createMaterialBottomTabNavigator()
-
-  const filmsScreenOptions: MaterialBottomTabNavigationOptions = useMemo(() => {
-    return {
-      tabBarLabel: t('films.title'),
-      tabBarIcon: ({color}: {color: string}) => (
-        <MaterialIcons name="movie" color={color} size={24} />
-      )
-    }
-  }, [t])
-
-  const charactersScreenOptions: MaterialBottomTabNavigationOptions = useMemo(() => {
-    return {
-      tabBarLabel: t('characters.title'),
-      tabBarIcon: ({color}: {color: string}) => (
-        <MaterialIcons name="person" color={color} size={24} />
-      )
-    }
-  }, [t])
-
-  const moreScreenOptions: MaterialBottomTabNavigationOptions = useMemo(() => {
-    return {
-      tabBarLabel: t('more.title'),
-      header: () => <AppbarNavigationHeader title="test" />,
-      tabBarIcon: ({color}: {color: string}) => (
-        <FontAwesome5 name="list-ul" color={color} size={22} />
-      )
-    }
-  }, [t])
 
   return (
     <Tab.Navigator barStyle={{backgroundColor: theme.colors.primary}}>
       <Tab.Screen
         name="Films"
-        component={FilmListScreen}
-        options={filmsScreenOptions}
+        component={FilmsStackNavigator}
+        options={{
+          tabBarLabel: i18n.translate('FilmsStack.Films.title'),
+          tabBarIcon: ({color}: {color: string}) => (
+            <MaterialIcons name="movie" color={color} size={24} />
+          )
+        }}
       />
       <Tab.Screen
         name="Characters"
-        component={CharacterListScreen}
-        options={charactersScreenOptions}
+        component={CharactersStackNavigator}
+        options={{
+          tabBarLabel: i18n.translate('CharactersStack.Characters.title'),
+          tabBarIcon: ({color}: {color: string}) => (
+            <MaterialIcons name="person" color={color} size={24} />
+          )
+        }}
       />
       <Tab.Screen
         name="More"
-        component={MoreScreen}
-        options={moreScreenOptions}
+        component={MoreStackNavigator}
+        options={{
+          tabBarLabel: i18n.translate('MoreStack.More.title'),
+          tabBarIcon: ({color}: {color: string}) => (
+            <FontAwesome5 name="list-ul" color={color} size={22} />
+          )
+        }}
       />
     </Tab.Navigator>
   )

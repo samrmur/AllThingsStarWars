@@ -1,0 +1,38 @@
+{
+  "MoreStack": {
+    "More": {
+      "title": "More"
+    },
+    "Starships": {
+      "title": "Starships",
+      "subtitle": "All the starships used in the original six movies."
+    },
+    "Species": {
+      "title": "Species",
+      "subtitle": "All the species seen from the original six movies."
+    },
+    "Planets": {
+      "title": "Planets",
+      "subtitle": "All the planets from the original six movies."
+    },
+    "Vehicles": {
+      "title": "Vehicles",
+      "subtitle": "All the vehicles used in the original six movies."
+    },
+    "Settings": {
+      "title": "Settings"
+    }
+  },
+  "CharactersStack": {
+    "Characters": {
+      "title": "Characters",
+      "subtitle": "All Characters from the Original Six"
+    }
+  },
+  "FilmsStack": {
+    "Films": {
+      "title": "Films",
+      "subtitle": "The Original Six"
+    }
+  }
+}

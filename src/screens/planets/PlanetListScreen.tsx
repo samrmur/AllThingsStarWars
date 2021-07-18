@@ -3,17 +3,17 @@ import DoubleColumnListView, {
   fullScreenStyle
 } from '@components/core/DoubleColumnListView'
 import {ListItemCardProps} from '@components/core/ListItemCard'
-import {useTranslation} from 'react-i18next'
 import placeholder from '@assets/star-wars-logo.jpg'
 import {NetworkStatus, useQuery} from '@apollo/client'
 import PlanetListQuery, {
   PlanetListQueryData
 } from './graphql/PlanetListQuery.graphql'
+import {useI18n} from '@shopify/react-i18n'
 
 const FIRST = 20
 
 const PlanetListScreen = () => {
-  const {t} = useTranslation()
+  const [i18n] = useI18n()
 
   const {networkStatus, data, error, refetch, fetchMore} = useQuery<
     PlanetListQueryData,
@@ -24,6 +24,9 @@ const PlanetListScreen = () => {
     }
   })
 
+  const populationTitle = i18n.translate('PlanetList.population')
+  const diameterTitle = i18n.translate('PlanetList.diameter')
+
   const planets: ListItemCardProps[] =
     data?.allPlanets?.edges?.map<ListItemCardProps>(planet => {
       const node = planet?.node
@@ -31,12 +34,8 @@ const PlanetListScreen = () => {
       return {
         id: node?.id?.toString() ?? '',
         title: node?.name ?? '',
-        subtitle: `${t('planets.population')}: ${
-          node?.population?.toString() ?? ''
-        }`,
-        content: `${t('planets.diameter')}:\n${
-          node?.diameter?.toString() ?? ''
-        }`,
+        subtitle: `${populationTitle}: ${node?.population?.toString() ?? ''}`,
+        content: `${diameterTitle}:\n${node?.diameter?.toString() ?? ''}`,
         src: placeholder
       }
     }) ?? []
