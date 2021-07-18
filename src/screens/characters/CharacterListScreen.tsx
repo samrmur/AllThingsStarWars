@@ -1,25 +1,19 @@
 import React, {useCallback} from 'react'
-import {View, StyleProp, ViewStyle} from 'react-native'
-import {useTranslation} from 'react-i18next'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import DoubleColumnListView, {
   fullScreenStyle
 } from '@components/core/DoubleColumnListView'
 import placeholder from '@assets/star-wars-logo.jpg'
-import AppbarNavigationHeader from '@components/core/AppbarNavigationHeader'
 import {NetworkStatus, useQuery} from '@apollo/client'
 import CharacterListQuery, {
   CharacterListQueryData
-} from '../../data/queries/CharacterListQuery.graphql'
-
-const viewStyle: StyleProp<ViewStyle> = {
-  flexGrow: 1
-}
+} from './graphql/CharacterListQuery.graphql'
+import {useI18n} from '@shopify/react-i18n'
 
 const FIRST = 20
 
 const CharacterListScreen = () => {
-  const {t} = useTranslation()
+  const [i18n] = useI18n()
 
   const {networkStatus, data, error, refetch, fetchMore} = useQuery<
     CharacterListQueryData,
@@ -29,6 +23,10 @@ const CharacterListScreen = () => {
       first: FIRST
     }
   })
+
+  const fromTitle = i18n.translate('CharacterList.from')
+  const speciesTitle = i18n.translate('CharacterList.species')
+  const birthYearTitle = i18n.translate('CharacterList.birthYear')
 
   const characters: ListItemCardProps[] =
     data?.allPeople?.edges?.map<ListItemCardProps>(character => {
@@ -42,10 +40,10 @@ const CharacterListScreen = () => {
       return {
         id: node?.id?.toString() ?? '',
         title: node?.name ?? '',
-        subtitle: `${t('characters.from')}: ${node?.homeworld?.name ?? ''}`,
-        content: `${t('characters.species')}: ${species ?? ''}\n${t(
-          'characters.birthYear'
-        )}: ${node?.birthYear?.toString() ?? ''}`,
+        subtitle: `${fromTitle}: ${node?.homeworld?.name ?? ''}`,
+        content: `${speciesTitle}: ${species ?? ''}\n${birthYearTitle}: ${
+          node?.birthYear?.toString() ?? ''
+        }`,
         src: placeholder
       }
     }) ?? []
@@ -60,23 +58,17 @@ const CharacterListScreen = () => {
   }, [data?.allPeople?.pageInfo?.endCursor, fetchMore])
 
   return (
-    <View style={viewStyle}>
-      <AppbarNavigationHeader
-        title={t('characters.title')}
-        subtitle={t('characters.subtitle')}
-      />
-      <DoubleColumnListView
-        loading={networkStatus == NetworkStatus.loading}
-        loadingMore={networkStatus == NetworkStatus.fetchMore}
-        refreshing={networkStatus == NetworkStatus.refetch}
-        hasNextPage={data?.allPeople?.pageInfo?.hasNextPage == true}
-        style={fullScreenStyle}
-        error={error}
-        onRefresh={refetch}
-        onLoadMore={fetchMoreCharacters}
-        data={characters}
-      />
-    </View>
+    <DoubleColumnListView
+      loading={networkStatus == NetworkStatus.loading}
+      loadingMore={networkStatus == NetworkStatus.fetchMore}
+      refreshing={networkStatus == NetworkStatus.refetch}
+      hasNextPage={data?.allPeople?.pageInfo?.hasNextPage == true}
+      style={fullScreenStyle}
+      error={error}
+      onRefresh={refetch}
+      onLoadMore={fetchMoreCharacters}
+      data={characters}
+    />
   )
 }
 

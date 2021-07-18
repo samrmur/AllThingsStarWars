@@ -1,12 +1,11 @@
-import React, {useMemo} from 'react'
+import React from 'react'
 import {List, useTheme} from 'react-native-paper'
-import {useTranslation} from 'react-i18next'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {ViewStyle, StyleProp, View} from 'react-native'
-import AppbarNavigationHeader from '@components/core/AppbarNavigationHeader'
 import {useNavigation} from '@react-navigation/native'
+import {useI18n} from '@shopify/react-i18n'
 
 interface ListItemLeftProps {
   color: string
@@ -23,27 +22,17 @@ const iconContainerStyle: StyleProp<ViewStyle> = {
 }
 
 const MoreScreen = () => {
-  const {t} = useTranslation()
+  const [i18n] = useI18n()
   const theme = useTheme()
   const navigation = useNavigation()
 
-  const containerStyle: StyleProp<ViewStyle> = useMemo(() => {
-    return {
-      flex: 1,
-      backgroundColor: theme.colors.background
-    }
-  }, [theme])
-
   return (
-    <View style={containerStyle}>
-      <AppbarNavigationHeader title={t('more.title')} />
-      <List.Section style={{marginStart: 5, marginEnd: 5}} accessibilityStates>
+    <View style={{flex: 1, backgroundColor: theme.colors.background}}>
+      <List.Section style={{paddingHorizontal: 5}} accessibilityStates>
         <List.Item
           accessibilityStates
-          title={t('species.title')}
-          onPress={() => {
-            navigation.navigate('SpeciesList')
-          }}
+          title={i18n.translate('More.species')}
+          onPress={() => navigation.navigate('SpeciesList')}
           left={(props: ListItemLeftProps) => (
             <View style={iconContainerStyle}>
               <MaterialCommunityIcons
@@ -57,10 +46,8 @@ const MoreScreen = () => {
         />
         <List.Item
           accessibilityStates
-          title={t('planets.title')}
-          onPress={() => {
-            navigation.navigate('PlanetList')
-          }}
+          title={i18n.translate('More.planets')}
+          onPress={() => navigation.navigate('PlanetList')}
           left={props => (
             <View style={iconContainerStyle}>
               <Ionicons
@@ -74,10 +61,8 @@ const MoreScreen = () => {
         />
         <List.Item
           accessibilityStates
-          title={t('starships.title')}
-          onPress={() => {
-            navigation.navigate('StarshipList')
-          }}
+          title={i18n.translate('More.starships')}
+          onPress={() => navigation.navigate('StarshipList')}
           left={(props: ListItemLeftProps) => (
             <View style={iconContainerStyle}>
               <FontAwesome5
@@ -91,10 +76,8 @@ const MoreScreen = () => {
         />
         <List.Item
           accessibilityStates
-          title={t('vehicles.title')}
-          onPress={() => {
-            navigation.navigate('VehicleList')
-          }}
+          title={i18n.translate('More.vehicles')}
+          onPress={() => navigation.navigate('VehicleList')}
           left={(props: ListItemLeftProps) => (
             <View style={iconContainerStyle}>
               <FontAwesome5
@@ -108,10 +91,8 @@ const MoreScreen = () => {
         />
         <List.Item
           accessibilityStates
-          title={t('settings.title')}
-          onPress={() => {
-            navigation.navigate('Settings')
-          }}
+          title={i18n.translate('More.settings')}
+          onPress={() => navigation.navigate('Settings')}
           left={(props: ListItemLeftProps) => (
             <View style={iconContainerStyle}>
               <Ionicons

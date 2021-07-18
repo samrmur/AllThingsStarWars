@@ -6,6 +6,7 @@ module.exports = {
     }
   },
   plugins: [
+    ['module:@shopify/react-native-i18n-plugin'],
     [
       'module-resolver',
       {

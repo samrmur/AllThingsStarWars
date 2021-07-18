@@ -1,5 +1,4 @@
 import React, {useCallback} from 'react'
-import {useTranslation} from 'react-i18next'
 import {ListItemCardProps} from '@components/core/ListItemCard'
 import DoubleColumnListView, {
   fullScreenStyle
@@ -7,16 +6,21 @@ import DoubleColumnListView, {
 import placeholder from '@assets/star-wars-logo.jpg'
 import SpeciesListQuery, {
   SpeciesListQueryData
-} from '../../data/queries/SpeciesListQuery.graphql'
+} from './graphql/SpeciesListQuery.graphql'
 import {NetworkStatus, useQuery} from '@apollo/client'
+import {useI18n} from '@shopify/react-i18n'
 
 const SpeciesListScreen = () => {
-  const {t} = useTranslation()
+  const [i18n] = useI18n()
 
   const {networkStatus, data, error, refetch, fetchMore} = useQuery<
     SpeciesListQueryData,
     SpeciesListQueryData.Variables
   >(SpeciesListQuery)
+
+  const speaksTitle = i18n.translate('SpeciesList.speaks')
+  const classificationTitle = i18n.translate('SpeciesList.classification')
+  const designationTitle = i18n.translate('SpeciesList.designation')
 
   const species: ListItemCardProps[] =
     data?.allSpecies?.edges?.map<ListItemCardProps>(species => {
@@ -25,10 +29,10 @@ const SpeciesListScreen = () => {
       return {
         id: node?.id?.toString() ?? '',
         title: node?.name ?? '',
-        subtitle: `${t('species.speaks')} ${node?.language ?? ''}`,
-        content: `${t('species.classification')}: ${
+        subtitle: `${speaksTitle} ${node?.language ?? ''}`,
+        content: `${classificationTitle}: ${
           node?.classification ?? ''
-        }\n${t('species.designation')}: ${node?.designation ?? ''}`,
+        }\n${designationTitle}: ${node?.designation ?? ''}`,
         src: placeholder
       }
     }) ?? []
