@@ -4,6 +4,7 @@ import stringHash from 'string-hash'
 import {camelCase} from 'change-case'
 
 import type {BabelFile} from '@babel/core'
+import {Binding} from 'babel__traverse'
 import {TemplateBuilder} from '@babel/template'
 import Types from '@babel/types'
 import {Node, NodePath} from '@babel/traverse'
@@ -40,6 +41,17 @@ export default function injectWithStaticI18nArguments({
     generateUidIdentifier,
     insertImports,
     rewritei18nCall
+  }: {
+    binding: Binding
+    bindingName: string
+    filename: string
+    fallbackLocale: string
+    generateUidIdentifier: (locale: string) => string
+    insertImports: (translations: TranslationDefinition[]) => void
+    rewritei18nCall: (
+      referencePathToRewrite: NodePath<Types.Node>,
+      translations: TranslationDefinition[]
+    ) => void
   }) {
     const {referencePaths} = binding
 
@@ -162,7 +174,7 @@ export default function injectWithStaticI18nArguments({
               )
             },
             rewritei18nCall(referencePathToRewrite, translations) {
-              referencePathToRewrite.parentPath.replaceWith(
+              referencePathToRewrite?.parentPath?.replaceWith(
                 i18nCallExpression(template, {
                   id: generateID(filename),
                   fallbackID,
