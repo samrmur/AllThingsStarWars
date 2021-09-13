@@ -6,7 +6,7 @@ module.exports = {
     }
   },
   plugins: [
-    ['module:@shopify/react-native-i18n-plugin'],
+    ['@shopify/react-i18n/babel', {mode: 'with-explicit-paths'}],
     [
       'module-resolver',
       {

@@ -1712,54 +1712,54 @@
     color "^3.1.2"
     react-native-iphone-x-helper "^1.2.1"
 
-"@shopify/dates@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@shopify/dates/-/dates-1.0.2.tgz#7840dc4f093140b0b445497d7f3dcba21609b3c8"
-  integrity sha512-TE0AMp6V8PMObUj2ewX2eENhVj8/4HBtm2dAmJ77IM2tUeswtvfBBN+p9FS+5bdzoGRMyxI7UBQrVS17N+fTYA==
+"@shopify/dates@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@shopify/dates/-/dates-1.0.7.tgz#7d4921a18ab6e3dbea95e5805c5dc6a61dc46944"
+  integrity sha512-S+PVX569z2UYbdabOrQAbS2u4QMVXEZIRBlo//vKl9Xu0JA7QJFhghOZmkZuJp1vMDzHMkU7cb2mnVZFhJKbIg==
   dependencies:
-    "@shopify/decorators" "^2.0.0"
+    "@shopify/decorators" "^2.0.3"
 
-"@shopify/decorators@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@shopify/decorators/-/decorators-2.0.0.tgz#bd030185da9373dbd33ce961663f2e3ab6554243"
-  integrity sha512-i1HbVXMWKGuxUesVxSKMf2Hk6vq0q3EkcGF70tFrLZLTB9Cz/N6RAX4tZwQYCnBAUxBMslrCyEswvTEetD/KUQ==
+"@shopify/decorators@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@shopify/decorators/-/decorators-2.0.3.tgz#dc3c5813679f687bdeadc8c40bba2f074bbca849"
+  integrity sha512-ttILiXzUGOa47/85VpmfoOZvrCxoHxsUC9RPxzsiTbqndWWyvf7OFBkHOVhbS9Eu4bz8BLyGGeJ/JXfm/tuhQg==
   dependencies:
-    "@shopify/function-enhancers" "^2.0.0"
+    "@shopify/function-enhancers" "^2.0.3"
 
-"@shopify/function-enhancers@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@shopify/function-enhancers/-/function-enhancers-2.0.0.tgz#849e73beec47ec96e39989b2cd9caf089fe2e176"
-  integrity sha512-zzQX7bWbNUyPeWpL0iKLO7jHg3qGXZ7RS/lyYKBHej66b6r8htZcIdAQytzA04FygXJ8I+N1azn+3WpDhmKrzg==
+"@shopify/function-enhancers@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@shopify/function-enhancers/-/function-enhancers-2.0.3.tgz#e42381f62bac8ce07335918703b431ce7772bdd7"
+  integrity sha512-toxthMCjVpT/5Vz97BNBe383uEPUlqgo063zILxToDYglNbssn63FauYuq8L+vMIsdMHIoZijCCM4RmSCmmtTQ==
 
-"@shopify/i18n@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@shopify/i18n/-/i18n-1.0.1.tgz#fddb5e9188fc8364ddf6e2a9fe03c8325fa00c43"
-  integrity sha512-nZulYLi3agPguee/dUuUg/bv8JGef3YZDvqKbgAmAW6kZn6h8ct6Q9hlLHr2O+x1WO+e6stlHDr993oONopeoA==
+"@shopify/i18n@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@shopify/i18n/-/i18n-1.0.4.tgz#0330dc07553c122be892d77db77b1ba69195cfa9"
+  integrity sha512-xhvtU61HrOCXFt6rp35Eza3UkWGRI6GZvYPOeY38qf/jMP1O1t8DsTZdxmLiela+SZPUg/IF6L/XljKXuMAQtg==
 
-"@shopify/react-effect@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@shopify/react-effect/-/react-effect-4.1.0.tgz#963978799d82c2e0dfdeb6dc83472d9b9c431979"
-  integrity sha512-pLavZA0w2S2+fdDEA/NI9Qkva1T8Mgc2/RFIz6fTkO144Fi/jdI1GMcIfrgI5Z2Z0UZKEGoUbiYcg/U0EP1mgQ==
+"@shopify/react-effect@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@shopify/react-effect/-/react-effect-4.1.4.tgz#dbebf82533ff36694ea738362a7668610641464e"
+  integrity sha512-d9Z3gp5TX2K728E3lfABxw6PhCJAIRWbDmHjdzJrVBHwe09AgZUklEqADHD6NhjXo35iFwnbiPwR7QKdN54HdA==
 
-"@shopify/react-hooks@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@shopify/react-hooks/-/react-hooks-2.1.0.tgz#f5f973756b5c8d650df0abd4cd88b5bc279c8a4b"
-  integrity sha512-2PKHdDGPhTtG+pZaATssK5l8qWeQUcrf1v90jZriDsGHfiNTY1SozzmdhY2HZ8Ylt2x9BGtpyOa/jOKc/SO4IQ==
+"@shopify/react-hooks@^2.1.3":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@shopify/react-hooks/-/react-hooks-2.1.3.tgz#cc555705dd9d652af8f9425b889c14e14ab75946"
+  integrity sha512-LR4jUh3cNUjTVwfyDtmYmZI7El4Xu4qKMOaz2wiJ3+Z6aJa5CwIm2zPVNq/qxHhdgc/TVOIuQ1JCSYw5h4/hVw==
 
-"@shopify/react-i18n@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@shopify/react-i18n/-/react-i18n-6.1.0.tgz#f85f58702927c416116d748051e4f77d85213518"
-  integrity sha512-86Z/kC+mmHvvZO9ggSFXW1gzKTFrpYal1SeLsRRL+5fJEUN1rjTfbKf/6cMcJPuy3zkoqEVJQ4qpvWo75OysAQ==
+"@shopify/react-i18n@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@shopify/react-i18n/-/react-i18n-6.2.0.tgz#dfde82a40896bcb5dc78532e4ff89617328d1c1d"
+  integrity sha512-/qpqnUX1L9OoGctZVycOYsO4D+RWFVrqAScOoKf/SEjI+vNW+MLDFmZij1SHDrOc6ZJBCW7w611agF1nVqw/Ww==
   dependencies:
-    "@shopify/dates" "^1.0.2"
-    "@shopify/decorators" "^2.0.0"
-    "@shopify/function-enhancers" "^2.0.0"
-    "@shopify/i18n" "^1.0.1"
-    "@shopify/react-effect" "^4.1.0"
-    "@shopify/react-hooks" "^2.1.0"
-    "@shopify/useful-types" "^3.0.1"
+    "@shopify/dates" "^1.0.7"
+    "@shopify/decorators" "^2.0.3"
+    "@shopify/function-enhancers" "^2.0.3"
+    "@shopify/i18n" "^1.0.4"
+    "@shopify/react-effect" "^4.1.4"
+    "@shopify/react-hooks" "^2.1.3"
+    "@shopify/useful-types" "^3.0.4"
     "@types/hoist-non-react-statics" "^3.0.1"
-    change-case "^3.1.0"
+    change-case "^4.1.2"
     glob "^7.1.4"
     hoist-non-react-statics "^3.0.1"
     lodash.clonedeep "^4.0.0"
@@ -1770,13 +1770,10 @@
     "@babel/traverse" "^7.0.0"
     fs-extra "^9.1.0"
 
-"@shopify/react-native-i18n-plugin@file:@shopify/react-native-i18n-plugin":
-  version "0.0.1"
-
-"@shopify/useful-types@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@shopify/useful-types/-/useful-types-3.0.1.tgz#1021459d49917ce5bff6b0cb6c34df44a49375b9"
-  integrity sha512-aWjLNyxGxNKLYKs3evYrars9h8OV2Apc1DcZqkFETnm7EMeoFv16feV21xdwpQxj2W9EwCpw7CSmlvadzXxHyA==
+"@shopify/useful-types@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@shopify/useful-types/-/useful-types-3.0.4.tgz#6b1f0908f60487550542c75acebea1a4f4eff968"
+  integrity sha512-uHVbNANIdYgWSF+vgL+H7j3ufyNzAbkHIgL0iYPb/C2OreHC1YaQWeMjjPQobzCb5MxultSPgvAbgWuytm3gCA==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"
@@ -4222,6 +4219,14 @@ camel-case@^4.1.1:
     pascal-case "^3.1.1"
     tslib "^1.10.0"
 
+camel-case@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/camel-case/-/camel-case-4.1.2.tgz#9728072a954f805228225a6deea6b38461e1bd5a"
+  integrity sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==
+  dependencies:
+    pascal-case "^3.1.2"
+    tslib "^2.0.3"
+
 camelcase@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
@@ -4251,6 +4256,15 @@ caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001087, caniuse-lite@^1.0.300010
   version "1.0.30001088"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001088.tgz#23a6b9e192106107458528858f2c0e0dba0d9073"
   integrity sha512-6eYUrlShRYveyqKG58HcyOfPgh3zb2xqs7NvT2VVtP3hEUeeWvc3lqhpeMTxYWBBeeaT9A4bKsrtjATm66BTHg==
+
+capital-case@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/capital-case/-/capital-case-1.0.4.tgz#9d130292353c9249f6b00fa5852bee38a717e669"
+  integrity sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==
+  dependencies:
+    no-case "^3.0.4"
+    tslib "^2.0.3"
+    upper-case-first "^2.0.2"
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -4305,7 +4319,7 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-change-case@^3.0.1, change-case@^3.1.0:
+change-case@^3.0.1:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/change-case/-/change-case-3.1.0.tgz#0e611b7edc9952df2e8513b27b42de72647dd17e"
   integrity sha512-2AZp7uJZbYEzRPsFoa+ijKdvp9zsrnnt6+yFokfwEpeJm0xuJDVoxiRCAaTzyJND8GJkofo2IcKWaUZ/OECVzw==
@@ -4328,6 +4342,24 @@ change-case@^3.0.1, change-case@^3.1.0:
     title-case "^2.1.0"
     upper-case "^1.1.1"
     upper-case-first "^1.1.0"
+
+change-case@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/change-case/-/change-case-4.1.2.tgz#fedfc5f136045e2398c0410ee441f95704641e12"
+  integrity sha512-bSxY2ws9OtviILG1EiY5K7NNxkqg/JnRnFxLtKQ96JaviiIxi7djMrSd0ECT9AC+lttClmYwKw53BWpOMblo7A==
+  dependencies:
+    camel-case "^4.1.2"
+    capital-case "^1.0.4"
+    constant-case "^3.0.4"
+    dot-case "^3.0.4"
+    header-case "^2.0.4"
+    no-case "^3.0.4"
+    param-case "^3.0.4"
+    pascal-case "^3.1.2"
+    path-case "^3.0.4"
+    sentence-case "^3.0.4"
+    snake-case "^3.0.4"
+    tslib "^2.0.3"
 
 char-regex@^1.0.2:
   version "1.0.2"
@@ -4712,6 +4744,15 @@ constant-case@^2.0.0:
   dependencies:
     snake-case "^2.1.0"
     upper-case "^1.1.1"
+
+constant-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/constant-case/-/constant-case-3.0.4.tgz#3b84a9aeaf4cf31ec45e6bf5de91bdfb0589faf1"
+  integrity sha512-I2hSBi7Vvs7BEuJDr5dDHfzb/Ruj3FyvFyh7KLilAjNQw3Be+xgqUBA2W6scVEcL0hL1dwPRtIqEPVUCKkSsyQ==
+  dependencies:
+    no-case "^3.0.4"
+    tslib "^2.0.3"
+    upper-case "^2.0.2"
 
 constants-browserify@^1.0.0:
   version "1.0.0"
@@ -5344,6 +5385,14 @@ dot-case@^3.0.3:
   dependencies:
     no-case "^3.0.3"
     tslib "^1.10.0"
+
+dot-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/dot-case/-/dot-case-3.0.4.tgz#9b2b670d00a431667a8a75ba29cd1b98809ce751"
+  integrity sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==
+  dependencies:
+    no-case "^3.0.4"
+    tslib "^2.0.3"
 
 dotenv-defaults@^1.0.2:
   version "1.1.1"
@@ -6961,6 +7010,14 @@ header-case@^1.0.0:
   dependencies:
     no-case "^2.2.0"
     upper-case "^1.1.3"
+
+header-case@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/header-case/-/header-case-2.0.4.tgz#5a42e63b55177349cf405beb8d775acabb92c063"
+  integrity sha512-H/vuk5TEEVZwrR0lp2zed9OCo1uAILMlx0JEMgC26rzyJJ3N1v6XkwHHXJQdR2doSjcGPM6OKPYoJgf0plJ11Q==
+  dependencies:
+    capital-case "^1.0.4"
+    tslib "^2.0.3"
 
 hermes-engine@~0.4.0:
   version "0.4.1"
@@ -8654,6 +8711,13 @@ lower-case@^2.0.1:
   dependencies:
     tslib "^1.10.0"
 
+lower-case@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-2.0.2.tgz#6fa237c63dbdc4a82ca0fd882e4722dc5e634e28"
+  integrity sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==
+  dependencies:
+    tslib "^2.0.3"
+
 lowlight@~1.11.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/lowlight/-/lowlight-1.11.0.tgz#1304d83005126d4e8b1dc0f07981e9b689ec2efc"
@@ -9351,6 +9415,14 @@ no-case@^3.0.3:
     lower-case "^2.0.1"
     tslib "^1.10.0"
 
+no-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.4.tgz#d361fd5c9800f558551a8369fc0dcd4662b6124d"
+  integrity sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==
+  dependencies:
+    lower-case "^2.0.2"
+    tslib "^2.0.3"
+
 node-fetch@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
@@ -9833,6 +9905,14 @@ param-case@^3.0.3:
     dot-case "^3.0.3"
     tslib "^1.10.0"
 
+param-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
+  integrity sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==
+  dependencies:
+    dot-case "^3.0.4"
+    tslib "^2.0.3"
+
 parent-module@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.1.tgz#691d2709e78c79fae3a156622452d00762caaaa2"
@@ -9913,6 +9993,14 @@ pascal-case@^3.1.1:
     no-case "^3.0.3"
     tslib "^1.10.0"
 
+pascal-case@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/pascal-case/-/pascal-case-3.1.2.tgz#b48e0ef2b98e205e7c1dae747d0b1508237660eb"
+  integrity sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==
+  dependencies:
+    no-case "^3.0.4"
+    tslib "^2.0.3"
+
 pascalcase@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
@@ -9948,6 +10036,14 @@ path-case@^2.1.0:
   integrity sha1-lLgDfDctP+KQbkZbtF4l0ibo7qU=
   dependencies:
     no-case "^2.2.0"
+
+path-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/path-case/-/path-case-3.0.4.tgz#9168645334eb942658375c56f80b4c0cb5f82c6f"
+  integrity sha512-qO4qCFjXqVTrcbPt/hQfhTQ+VhFsqNKOPtytgNKkKxSoEp3XPUQ8ObFuePylOIok5gjn69ry8XiULxCwot3Wfg==
+  dependencies:
+    dot-case "^3.0.4"
+    tslib "^2.0.3"
 
 path-dirname@^1.0.0:
   version "1.0.2"
@@ -11427,6 +11523,15 @@ sentence-case@^2.1.0:
     no-case "^2.2.0"
     upper-case-first "^1.1.2"
 
+sentence-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/sentence-case/-/sentence-case-3.0.4.tgz#3645a7b8c117c787fde8702056225bb62a45131f"
+  integrity sha512-8LS0JInaQMCRoQ7YUytAo/xUu5W2XnQxV2HI/6uM6U7CITS1RqPElr30V6uIqyMKM9lJGRVFy5/4CuzcixNYSg==
+  dependencies:
+    no-case "^3.0.4"
+    tslib "^2.0.3"
+    upper-case-first "^2.0.2"
+
 serialize-error@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-2.1.0.tgz#50b679d5635cdf84667bdc8e59af4e5b81d5f60a"
@@ -11645,6 +11750,14 @@ snake-case@^2.1.0:
   integrity sha1-Qb2xtz8w7GagTU4srRt2OH1NbZ8=
   dependencies:
     no-case "^2.2.0"
+
+snake-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/snake-case/-/snake-case-3.0.4.tgz#4f2bbd568e9935abdfd593f34c691dadb49c452c"
+  integrity sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==
+  dependencies:
+    dot-case "^3.0.4"
+    tslib "^2.0.3"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -12425,6 +12538,11 @@ tslib@^1, tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
+tslib@^2.0.3:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
+
 tslib@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
@@ -12638,10 +12756,24 @@ upper-case-first@^1.1.0, upper-case-first@^1.1.2:
   dependencies:
     upper-case "^1.1.1"
 
+upper-case-first@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/upper-case-first/-/upper-case-first-2.0.2.tgz#992c3273f882abd19d1e02894cc147117f844324"
+  integrity sha512-514ppYHBaKwfJRK/pNC6c/OxfGa0obSnAl106u97Ed0I625Nin96KAjttZF6ZL3e1XLtphxnqrOi9iWgm+u+bg==
+  dependencies:
+    tslib "^2.0.3"
+
 upper-case@^1.0.3, upper-case@^1.1.0, upper-case@^1.1.1, upper-case@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/upper-case/-/upper-case-1.1.3.tgz#f6b4501c2ec4cdd26ba78be7222961de77621598"
   integrity sha1-9rRQHC7EzdJrp4vnIilh3ndiFZg=
+
+upper-case@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/upper-case/-/upper-case-2.0.2.tgz#d89810823faab1df1549b7d97a76f8662bae6f7a"
+  integrity sha512-KgdgDGJt2TpuwBUIjgG6lzw2GWFRCW9Qkfkiv0DxqHHLYJHmtmdUIKcZd8rHgFSjopVTlw6ggzCm1b8MFQwikg==
+  dependencies:
+    tslib "^2.0.3"
 
 uri-js@^4.2.2:
   version "4.2.2"
